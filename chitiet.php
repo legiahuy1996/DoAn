@@ -20,7 +20,7 @@ include('main/trangchitiet.php');
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title> Ban Sach</title>
+    <title> Bán Sách</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="View/css/bootstrap.min.css" rel="stylesheet">
@@ -53,7 +53,7 @@ include('main/trangchitiet.php');
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.php">BanSach</a>
+                <a class="navbar-brand" href="index.php">Sách Online</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -146,7 +146,7 @@ include('main/trangchitiet.php');
                     </li>
 
                     <li href="#" class="list-group-item menu1">
-                        Chu De
+                        Chủ Đề
                     </li>
                     <ul>
                         <?php
@@ -164,7 +164,7 @@ include('main/trangchitiet.php');
                     </ul>
 
                     <li href="#" class="list-group-item menu1">
-                        Tac Gia
+                        Tác Giả
                     </li>
                     <ul>
                         <?php 
@@ -183,7 +183,7 @@ include('main/trangchitiet.php');
 
 
                     <li href="#" class="list-group-item menu1">
-                        Nha Xuat Ban
+                        Nhà Xuất Bản
                     </li>
 
                     <ul>
@@ -207,7 +207,7 @@ include('main/trangchitiet.php');
             <div class="col-md-9">
              <div class="panel panel-default">
               <div class="panel-heading" style="background-color:#337AB7; color:white;" >
-                <h2 style="margin-top:0px; margin-bottom:0px;"> Chi Tiet</h2>
+                <h2 style="margin-top:0px; margin-bottom:0px;"> Chi Tiết</h2>
            </div>
 
            <div class="panel-body">

@@ -17,7 +17,7 @@ include('main/trangchude.php');
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title> Ban sach</title>
+    <title> Bán Sách</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="View/css/bootstrap.min.css" rel="stylesheet">
@@ -49,7 +49,7 @@ include('main/trangchude.php');
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.php"> Ban Sach</a>
+                <a class="navbar-brand" href="index.php"> Sách Online</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -96,7 +96,7 @@ include('main/trangchude.php');
                     </li>
 
                     <li href="#" class="list-group-item menu1">
-                        Chu De
+                       Chủ Đề
                     </li>
                     <ul>
                         <?php
@@ -114,7 +114,7 @@ include('main/trangchude.php');
                     </ul>
 
                     <li href="#" class="list-group-item menu1">
-                        Tac Gia
+                       Tác Giả
                     </li>
                     <ul>
                         <?php 
@@ -133,7 +133,7 @@ include('main/trangchude.php');
 
 
                     <li href="#" class="list-group-item menu1">
-                        Nha Xuat Ban
+                       Nhà Xuất Bản 
                     </li>
 
                     <ul>
