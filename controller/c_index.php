@@ -89,5 +89,24 @@ class C_index{
 		$result = $m_index->getTotalRecordSachByNXB($manxb);
 		return $result;
 	}
-	
+	function getSachByTacGia($matacgia,$current_page){
+		$m_index = new M_index();
+		$limit =6 ;
+		$start = ($current_page-1)*$limit;
+		$result = $m_index->getSachByTacGia($matacgia,$start,$limit);
+		return $result;
+	}
+	function getTotalRecordSachByTacgia($matacgia)
+	{
+
+		$m_index = new M_index();
+		$result = $m_index->getTotalRecordSachByTacgia($matacgia);
+		return $result;
+	}
+	function getTacGiaByID($matacgia)
+	{
+		$m_index = new M_index();
+		$result = $m_index->getTacGiaByID($matacgia);
+		return $result;
+	}
 }

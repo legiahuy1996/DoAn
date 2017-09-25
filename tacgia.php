@@ -1,10 +1,15 @@
 <?php 
 include('controller/c_index.php');
 $c_index = new C_index();
-$machude = isset($_GET['machude'])?$_GET['machude']:1;
+$matacgia = isset($_GET['matacgia'])?$_GET['matacgia']:1;
 $current_page = isset($_GET['page'])?$_GET['page']:1;
-include('main/trangchude.php');
+include('main/trangtacgia.php');
+
+
 ?>
+
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -17,15 +22,15 @@ include('main/trangchude.php');
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title> Ban sach</title>
+    <title> Ban Sach</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="View/css/bootstrap.min.css" rel="stylesheet">
-
     <!-- Custom CSS -->
     <link href="View/css/shop-homepage.css" rel="stylesheet">
     <link href="View/css/my.css" rel="stylesheet">
     <link href="View/css/TrangChu.css" rel="stylesheet">
+
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -49,38 +54,49 @@ include('main/trangchude.php');
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.php"> Ban Sach</a>
+                <a class="navbar-brand" href="index.php">BanSach</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="#">Giới thiệu</a>
+                        <a href="gioithieu.html">Giới thiệu</a>
                     </li>
                     <li>
-                        <a href="#">Liên hệ</a>
+                        <a href="lienhe.html">Liên hệ</a>
                     </li>
                 </ul>
 
                 <form class="navbar-form navbar-left" role="search">
-                    <div class="form-group">
-                      <input type="text" class="form-control" placeholder="Search">
-                    </div>
-                    <button type="submit" class="btn btn-default">Submit</button>
-                </form>
+			        <div class="form-group">
+			          <input type="text" class="form-control" placeholder="Search">
+			        </div>
+			        <button type="submit" class="btn btn-default">Submit</button>
+			    </form>
 
-                <ul class="nav navbar-nav pull-right">
+			    <ul class="nav navbar-nav pull-right">
                     <li>
-                        <a href="#">Đăng ký</a>
+                        <a href="dangki.html">Đăng ký</a>
                     </li>
                     <li>
-                        <a href="#">Đăng nhập</a>
+                        <a href="dangnhap.html">Đăng nhập</a>
                     </li>
+                    <li>
+                    	<a>
+                    		<span class ="glyphicon glyphicon-user"></span>
+                    		Hương Hương
+                    	</a>
+                    </li>
+
+                    <li>
+                    	<a href="#">Đăng xuất</a>
+                    </li>
+
                 </ul>
             </div>
 
 
-            
+
             <!-- /.navbar-collapse -->
         </div>
         <!-- /.container -->
@@ -88,15 +104,50 @@ include('main/trangchude.php');
 
     <!-- Page Content -->
     <div class="container">
-        <div class="row">
+
+    	<!-- slider -->
+    	<div class="row carousel-holder">
+            <div class="col-md-12">
+                <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <img class="slide-image" src="HinhAnh/1.jpg" alt="">
+                        </div>
+                        <div class="item">
+                            <img class="slide-image" src="HinhAnh/2.jpg" alt="">
+                        </div>
+                        <div class="item">
+                            <img class="slide-image" src="HinhAnh/3.jpg" alt="">
+                        </div>
+                    </div>
+                    <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left"></span>
+                    </a>
+                    <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- end slide -->
+
+        <div class="space20"></div>
+
+
+        <div class="row main-left">
             <div class="col-md-3 ">
                 <ul class="list-group" id="menu">
                     <li href="#" class="list-group-item menu1 active">
-                        Menu
+                    	Menu
                     </li>
 
                     <li href="#" class="list-group-item menu1">
-                        Chu De
+                    	Chu De
                     </li>
                     <ul>
                         <?php
@@ -109,12 +160,12 @@ include('main/trangchude.php');
                         <?php
                         }
                         ?>
-                    
-                        
+                	
+                		
                     </ul>
 
                     <li href="#" class="list-group-item menu1">
-                        Tac Gia
+                    	Tac Gia
                     </li>
                     <ul>
                         <?php 
@@ -127,17 +178,17 @@ include('main/trangchude.php');
                         <?php
                         }
                         ?>
-                        
-                        
+                		
+                		
                     </ul>
 
 
                     <li href="#" class="list-group-item menu1">
-                        Nha Xuat Ban
+                    	Nha Xuat Ban
                     </li>
 
                     <ul>
-                         <?php 
+                        <?php 
                         foreach ($nhaxuatban as $nxb => $tennxb) 
                         {
                             ?>
@@ -148,18 +199,23 @@ include('main/trangchude.php');
                         }
                         ?>
                     </ul>
+
+
+                   
+                </ul>
             </div>
 
-            <div class="col-md-9 ">
-                <div class="panel panel-default">
-                    <div class="panel-heading" style="background-color:#337AB7; color:white;">
-                        <h4><b><?=$chitietchude['tenchude']?></b></h4>
-                    </div>
-                    <div id="divBody" style="background:White;">
+            <div class="col-md-9">
+             <div class="panel panel-default">
+              <div class="panel-heading" style="background-color:#337AB7; color:white;" >
+                <h2 style="margin-top:0px; margin-bottom:0px;"><?=$chitiettacgia['TenTG']?></h2>
+           </div>
+
+           <div class="panel-body">
+            <div id="divBody" style="background:White;">
                 
                 <?php 
                 foreach ($chitietsach as $key => $value) {
-
                     ?>
                     <div id="SanPham">
                        <a href="chitiet.php?masach=<?=$value['MaSach']?>">  <div id="AnhBia"><img src="HinhAnhSP/<?=$value['AnhBia']?>" width="100" height="150" /></div></a>
@@ -193,70 +249,75 @@ include('main/trangchude.php');
             } 
             ?>
         </div>
-                    
-
-                    <!-- Pagination -->
+         <!-- Pagination -->
                     <div class="row text-center">
                         <div class="col-lg-12">
                             <ul class="pagination">
                                 <?php
                                 $c_index = new C_index();
-                                $total_record = $c_index->getTotalRecordSachByChude($machude);
+                                $total_record = $c_index->getTotalRecordSachByTacgia($matacgia);
                                 $limit =6;
                                 $total_page = ceil($total_record['Totalrecord']/$limit);
                                 if($total_page>1)
                                 {
                                     if ($current_page > $total_page){
-                                        $current_page = $total_page;
-                                    }
-                                    else if ($current_page < 1){
-                                        $current_page = 1;
-                                    }
-                                    if ($current_page > 1 && $total_page > 1){
-                                        ?>
-                                        <li>
-                                            <a href="chude.php?machude=<?=$chitietchude['machude']?>&&page=<?=($current_page-1)?>">&laquo;</a>
-                                        </li>
-                                        <?php
-                                    }
-                                    for ($i=1; $i<=$total_page ; $i++) 
-                                    {
-                                        if($i == $current_page)
-                                            {?>
-                                                <li class="active">
-                                                    <span><?=$i?></span>
-                                                </li>
-                                                <?php
-                                            }
-                                            else
-                                                {    ?>
+                                    $current_page = $total_page;
+                                }
+                                else if ($current_page < 1){
+                                    $current_page = 1;
+                                }
+                                if ($current_page > 1 && $total_page > 1){
+                                    ?>
+                                    <li>
+                                        <a href="index.php?page=<?=($current_page-1)?>">&laquo;</a>
+                                    </li>
+                                    <?php
+                                }
+                                for ($i=1; $i<=$total_page ; $i++) 
+                                {
+                                    if($i == $current_page)
+                                        {?>
+                                    <li class="active">
+                                        <span><?=$i?></span>
+                                    </li>
+                                    <?php
+                                }
+                                    else
+                                    {    ?>
 
-                                                    <li>
-                                                        <a href="chude.php?machude=<?=$chitietchude['machude']?>&&page=<?=$i?>"><?=$i?></a>
-                                                    </li>
-                                                    <?php
-                                                }
-                                            }
-                                            if ($current_page < $total_page && $total_page > 1)
-                                            {
-                                               ?>
+                                    <li>
+                                        <a href="index.php?page=<?=$i?>"><?=$i?></a>
+                                    </li>
+                                    <?php
+                                }
+                                }
+                                if ($current_page < $total_page && $total_page > 1)
+                                {
+                                 ?>
 
-                                               <li>
-                                                <a href="chude.php?machude=<?=$chitietchude['machude']?>&&page=<?=($current_page+1)?>">&raquo;</a>
-                                            </li>
-                                            <?php
-                                        }
+                                 <li>
+                                    <a href="index.php?page=<?=($current_page+1)?>">&raquo;</a>
+                                </li>
+                                <?php
+                            }
                                 }?>
+                                
                             </ul>
                         </div>
                     </div>
                     <!-- /.row -->
+        
+        
+    </div>
+   
+       
+       
+     </div>
+ </div>
 
-                </div>
-            </div> 
-
-        </div>
-
+</div>
+      
+        <!-- /.row -->
     </div>
     <!-- end Page Content -->
 
@@ -267,7 +328,7 @@ include('main/trangchude.php');
             <div class="col-md-12">
                 <p>Copyright &copy; Your Website 2014</p>
             </div>
-        </div>
+        </div>  
     </footer>
     <!-- end Footer -->
     <!-- jQuery -->

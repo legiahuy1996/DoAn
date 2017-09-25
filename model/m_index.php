@@ -65,5 +65,20 @@ class M_index extends database{
 		$sql = "SELECT count(*) as Totalrecord from sach where MaNXB = $manxb";
 		return $this->get_row($sql);
 	}
+	function getSachByTacGia($matacgia,$start,$limit)
+	{
+		$sql = "SELECT * from sach where MaSach in (select s.MaSach from thamgia tg INNER JOIN sach s on s.MaSach = tg.MaSach where MaTacGia=$matacgia) limit $start,$limit";
+		return $this->get_list($sql);
+	}
 	
+	function getTotalRecordSachByTacgia($matacgia)
+	{
+		$sql = "SELECT count(*) as Totalrecord from tacgia where MaTacGia = $matacgia";
+		return $this->get_row($sql);
+	}
+	function getTacGiaByID($matacgia)
+	{
+		$sql = "SELECT * from tacgia where MaTacGia =$matacgia";
+		return $this->get_row($sql);
+	}
 }

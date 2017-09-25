@@ -171,7 +171,7 @@ include('main/trangchu.php');
                         {
                             ?>
                            <li class="list-group-item">
-                            <a href="loaitin.html"><?php echo $tentacgia['TenTG']?></a>
+                            <a href="tacgia.php?matacgia=<?=$tentacgia['MaTacGia']?>"><?php echo $tentacgia['TenTG']?></a>
                         </li>
                         <?php
                         }
