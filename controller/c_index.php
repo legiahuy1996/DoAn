@@ -109,4 +109,10 @@ class C_index{
 		$result = $m_index->getTacGiaByID($matacgia);
 		return $result;
 	}
+	function DangNhap($username,$password)
+	{
+		$m_index = new M_index();
+		$result = $m_index->DangNhap($username,md5($password));
+		return $result;
+	}
 }

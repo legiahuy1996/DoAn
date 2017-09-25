@@ -81,4 +81,9 @@ class M_index extends database{
 		$sql = "SELECT * from tacgia where MaTacGia =$matacgia";
 		return $this->get_row($sql);
 	}
+	function DangNhap($username,$password)
+	{
+		$sql = "SELECT * from khachhang where taikhoan = '$username' && matkhau ='$password'";
+		return $this->get_row($sql);
+	}
 }

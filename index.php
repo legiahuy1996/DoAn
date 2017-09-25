@@ -1,4 +1,5 @@
 <?php 
+session_start();
 include('controller/c_index.php');
 $c_index = new C_index();
 $current_page = isset($_GET['page'])?$_GET['page']:1;
@@ -77,12 +78,12 @@ include('main/trangchu.php');
                         <a href="dangki.html">Đăng ký</a>
                     </li>
                     <li>
-                        <a href="dangnhap.html">Đăng nhập</a>
+                        <a href="dangnhap.php">Đăng nhập</a>
                     </li>
                     <li>
                     	<a>
                     		<span class ="glyphicon glyphicon-user"></span>
-                    		Hương Hương
+                    		<?php if(isset($_SESSION['TenKH'])) echo $_SESSION['TenKH']?>
                     	</a>
                     </li>
 
