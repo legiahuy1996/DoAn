@@ -48,7 +48,12 @@ class database {
         
         return $return;
     }
-     
+     function execute($sql)
+     {
+        $this->connect();
+        
+         mysqli_query($this->__conn, $sql);
+     }
     // Hàm lấy 1 record dùng trong trường hợp lấy chi tiết tin
     function get_row($sql){
          // Kết nối

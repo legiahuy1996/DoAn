@@ -37,7 +37,17 @@ include('main/trangchu.php');
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+<script type="text/javascript"> 
 
+    <?php if($_SESSION['ketqua']==true)
+    {?> 
+        alert('Đăng ký thành công! Vui lòng đăng nhập để update thông tin của bạn!!');
+
+        <?php
+        unset($_SESSION['ketqua']);
+    } ?>
+
+</script>
 </head>
 
 <body>
@@ -75,7 +85,7 @@ include('main/trangchu.php');
 
 			    <ul class="nav navbar-nav pull-right">
                     <li>
-                        <a href="dangki.html">Đăng ký</a>
+                        <a href="dangky.php">Đăng ký</a>
                     </li>
                     <li>
                         <a href="dangnhap.php">Đăng nhập</a>
@@ -88,7 +98,7 @@ include('main/trangchu.php');
                     </li>
 
                     <li>
-                    	<a href="#">Đăng xuất</a>
+                    	<a href="index.php"><?php unset($_SESSION['TenKH'])?>Đăng xuất</a>
                     </li>
 
                 </ul>

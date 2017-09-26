@@ -86,4 +86,15 @@ class M_index extends database{
 		$sql = "SELECT * from khachhang where taikhoan = '$username' && matkhau ='$password'";
 		return $this->get_row($sql);
 	}
+	function DangKy($username,$password,$email)
+	{
+		$sql = "INSERT into khachhang VALUES(NULL,NULL,NULL,NULL,NULL,'$username','$password','$email',NULL)";
+		$this->execute($sql);
+	}
+	function getlistKhachHang()
+	{
+		$sql = "SELECT * from khachhang";
+		return $this->get_list($sql);
+
+	}
 }

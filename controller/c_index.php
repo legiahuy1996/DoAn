@@ -115,4 +115,17 @@ class C_index{
 		$result = $m_index->DangNhap($username,md5($password));
 		return $result;
 	}
+	function DangKy($username,$password,$email)
+	{
+		$m_index = new M_index();
+		$result = $m_index->DangKy($username,md5($password),$email);
+		return $result;
+
+	}
+	function getlistKhachHang()
+	{
+		$m_index = new M_index();
+		$result = $m_index->getlistKhachHang();
+		return $result;
+	}
 }
