@@ -1,4 +1,5 @@
 <?php 
+session_start();
 include('controller/c_index.php');
 $c_index = new C_index();
 $masach = isset($_GET['masach'])?$_GET['masach']:1;
@@ -43,7 +44,7 @@ include('main/trangchitiet.php');
 <body>
 
     <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -75,20 +76,33 @@ include('main/trangchitiet.php');
 
                 <ul class="nav navbar-nav pull-right">
                     <li>
-                        <a href="dangki.html">Đăng ký</a>
+                        <a href="dangky.php">Đăng ký</a>
                     </li>
                     <li>
-                        <a href="dangnhap.html">Đăng nhập</a>
+                        <?php
+                             if(!isset($_SESSION['TenKH']))
+                            {?>
+                        <a href="dangnhap.php">Đăng nhập</a>
+                         <?php 
+                     } ?>
                     </li>
                     <li>
                         <a>
-                            <span class ="glyphicon glyphicon-user"></span>
-                            Hương Hương
+                            
+                            <?php
+                             if(isset($_SESSION['TenKH']))
+                            {?>
+                                <span class ="glyphicon glyphicon-user"></span>
+                                <?php
+                                echo $_SESSION['TenKH'];
+
+
+                            } ?>
                         </a>
                     </li>
 
                     <li>
-                        <a href="#">Đăng xuất</a>
+                        <a href="dangxuat.php">Đăng xuất</a>
                     </li>
 
                 </ul>
@@ -100,7 +114,6 @@ include('main/trangchitiet.php');
         </div>
         <!-- /.container -->
     </nav>
-
     <!-- Page Content -->
     <div class="container">
 

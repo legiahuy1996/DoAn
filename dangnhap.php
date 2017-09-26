@@ -7,6 +7,8 @@ if(isset($_POST['DangNhap']))
     include('main/trangdangnhap.php');
 }
 
+    
+    
 ?>
 
 
@@ -42,7 +44,7 @@ if(isset($_POST['DangNhap']))
 <body>
 
     <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -52,43 +54,62 @@ if(isset($_POST['DangNhap']))
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#"> Sách Online</a>
+                <a class="navbar-brand" href="index.php">Sách Online</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="#">Giới thiệu</a>
+                        <a href="gioithieu.html">Giới thiệu</a>
                     </li>
                     <li>
-                        <a href="#">Liên hệ</a>
+                        <a href="lienhe.html">Liên hệ</a>
                     </li>
                 </ul>
 
                 <form class="navbar-form navbar-left" role="search">
-			        <div class="form-group">
-			          <input type="text" class="form-control" placeholder="Search">
-			        </div>
-			        <button type="submit" class="btn btn-default">Submit</button>
-			    </form>
+                    <div class="form-group">
+                      <input type="text" class="form-control" placeholder="Search">
+                    </div>
+                    <button type="submit" class="btn btn-default">Submit</button>
+                </form>
 
-			    <ul class="nav navbar-nav pull-right">
+                <ul class="nav navbar-nav pull-right">
                     <li>
-                        <a href="#">Đăng ký</a>
+                        <a href="dangky.php">Đăng ký</a>
                     </li>
                     <li>
-                        <a href="#">Đăng nhập</a>
+                        <?php
+                             if(!isset($_SESSION['TenKH']))
+                            {?>
+                        <a href="dangnhap.php">Đăng nhập</a>
+                         <?php 
+                     } ?>
+                    </li>
+                    <li>
+                        <a>
+                            
+                            <?php
+                             if(isset($_SESSION['TenKH']))
+                            {?>
+                                <span class ="glyphicon glyphicon-user"></span>
+                                <?php
+                                echo $_SESSION['TenKH'];
+
+
+                            } ?>
+                        </a>
                     </li>
 
                     <li>
-                    	<a href="#">Đăng xuất</a>
+                        <a href="dangxuat.php">Đăng xuất</a>
                     </li>
-                    
+
                 </ul>
             </div>
 
 
-            
+
             <!-- /.navbar-collapse -->
         </div>
         <!-- /.container -->
@@ -111,6 +132,7 @@ if(isset($_POST['DangNhap']))
                                     ?>
                                     <div class="alert alert-danger"><?=$_SESSION['errormess']?></div>
                                     <?php
+                                    unset($_SESSION['errormess']);
                                 }
                                 ?>
 				    			<label>Tài Khoản</label>

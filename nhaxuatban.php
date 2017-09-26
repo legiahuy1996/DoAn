@@ -1,4 +1,5 @@
-<?php 
+<?php
+session_start();
 include('controller/c_index.php');
 $c_index = new C_index();
 $manxb = isset($_GET['manxb'])?$_GET['manxb']:1;
@@ -50,16 +51,16 @@ include('main/trangnhaxuatban.php');
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#"> Sách Online</a>
+                <a class="navbar-brand" href="index.php">Sách Online</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="#">Giới thiệu</a>
+                        <a href="gioithieu.html">Giới thiệu</a>
                     </li>
                     <li>
-                        <a href="#">Liên hệ</a>
+                        <a href="lienhe.html">Liên hệ</a>
                     </li>
                 </ul>
 
@@ -72,16 +73,40 @@ include('main/trangnhaxuatban.php');
 
                 <ul class="nav navbar-nav pull-right">
                     <li>
-                        <a href="#">Đăng ký</a>
+                        <a href="dangky.php">Đăng ký</a>
                     </li>
                     <li>
-                        <a href="#">Đăng nhập</a>
+                        <?php
+                             if(!isset($_SESSION['TenKH']))
+                            {?>
+                        <a href="dangnhap.php">Đăng nhập</a>
+                         <?php 
+                     } ?>
                     </li>
+                    <li>
+                        <a>
+                            
+                            <?php
+                             if(isset($_SESSION['TenKH']))
+                            {?>
+                                <span class ="glyphicon glyphicon-user"></span>
+                                <?php
+                                echo $_SESSION['TenKH'];
+
+
+                            } ?>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="dangxuat.php">Đăng xuất</a>
+                    </li>
+
                 </ul>
             </div>
 
 
-            
+
             <!-- /.navbar-collapse -->
         </div>
         <!-- /.container -->

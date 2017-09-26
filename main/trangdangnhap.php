@@ -1,7 +1,8 @@
 <?php
  $username = $_POST['username'];
  $password = $_POST['password'];
- 
+
+ 	
  if($username == '' && $password == '')
  {
 
@@ -14,6 +15,7 @@
  	
  	if($ketqua==true)
  	{	
+ 		
  		if(isset($_SESSION['errormess']))
  		{
  			unset($_SESSION['errormess']);

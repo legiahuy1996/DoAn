@@ -88,17 +88,30 @@ include('main/trangchu.php');
                         <a href="dangky.php">Đăng ký</a>
                     </li>
                     <li>
+                        <?php
+                             if(!isset($_SESSION['TenKH']))
+                            {?>
                         <a href="dangnhap.php">Đăng nhập</a>
+                         <?php 
+                     } ?>
                     </li>
                     <li>
                     	<a>
-                    		<span class ="glyphicon glyphicon-user"></span>
-                    		<?php if(isset($_SESSION['TenKH'])) echo $_SESSION['TenKH']?>
+                    		
+                    		<?php
+                             if(isset($_SESSION['TenKH']))
+                            {?>
+                                <span class ="glyphicon glyphicon-user"></span>
+                                <?php
+                                echo $_SESSION['TenKH'];
+
+
+                            } ?>
                     	</a>
                     </li>
 
                     <li>
-                    	<a href="index.php"><?php unset($_SESSION['TenKH'])?>Đăng xuất</a>
+                    	<a href="dangxuat.php">Đăng xuất</a>
                     </li>
 
                 </ul>
