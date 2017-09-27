@@ -2,6 +2,7 @@
 session_start();
 if(isset($_SESSION['TenKH']))
 {
+	
 	unset($_SESSION['TenKH']);
 	header("location:index.php");
 }

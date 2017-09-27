@@ -29,6 +29,9 @@ include('main/trangchu.php');
     <link href="View/css/shop-homepage.css" rel="stylesheet">
     <link href="View/css/my.css" rel="stylesheet">
     <link href="View/css/TrangChu.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="View/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="View/css/font-awesome.min.css">
+
 
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -260,8 +263,11 @@ include('main/trangchu.php');
                         <div id="DonGia" style="color:orange"><font  color="Green">Giá:</font> <?=number_format($value['Giaban'])?> VNĐ</div>
                     </div>
                     <div id="GioHang">
-
-                        <input type="submit" style="cursor:pointer" value="Mua hàng &#xf07a;" id="btnGioHang" class="btn btn-primary">
+                         <button type="submit" class="btn btn-primary">
+                            Mua hàng
+          <span class="glyphicon glyphicon-shopping-cart"></span> 
+        </button> 
+                        
 
                     </div>
 

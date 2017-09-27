@@ -208,9 +208,10 @@ include('main/trangchude.php');
                         <div id="DonGia" style="color:orange"><font  color="Green">Giá:</font> <?=number_format($value['Giaban'])?> VNĐ</div>
                     </div>
                     <div id="GioHang">
-
-                        <input type="submit" style="cursor:pointer" value="Mua hàng &#xf07a;" id="btnGioHang" class="btn btn-primary">
-
+ <button type="submit" class="btn btn-primary">
+                            Mua hàng
+          <span class="glyphicon glyphicon-shopping-cart"></span> 
+        </button> 
                     </div>
 
                     </div>

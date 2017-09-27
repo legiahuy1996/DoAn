@@ -39,4 +39,9 @@ div#SanPham {
 }
 #GioHang{
     margin-left: 10%;
+
+}
+#btnGioHang {
+    font-family: 'FontAwesome','Segoe UI';
+    background-color: red;
 }
