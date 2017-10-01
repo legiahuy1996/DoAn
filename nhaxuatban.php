@@ -28,7 +28,7 @@ include('main/trangnhaxuatban.php');
     <!-- Custom CSS -->
     <link href="view/css/shop-homepage.css" rel="stylesheet">
     <link href="view/css/my.css" rel="stylesheet">
-<link href="View/css/TrangChu.css" rel="stylesheet">
+<link href="view/css/TrangChu.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
