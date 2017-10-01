@@ -1,6 +1,6 @@
 <?php
 class database {
-	private $__conn;
+    private $__conn;
      
     // Hàm Kết Nối
     function connect(){

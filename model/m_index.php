@@ -21,7 +21,7 @@ class M_index extends database{
 		return $this->get_list($sql);
 	}
 	function getTotalRecordSach(){
-		$sql = "SELECT count(*)as Totalrecord from Sach where Moi=1";
+		$sql = "SELECT count(*)as Totalrecord from sach where Moi=1";
 		return $this->get_row($sql);
 	}
 	function getSachByChuDe($machude,$start,$limit)

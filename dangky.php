@@ -25,14 +25,14 @@ if(isset($_POST['DangKy']))
     <title> Đăng ký</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="view/css/bootstrap.min.css" rel="stylesheet">
+    <link href="View/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="view/css/shop-homepage.css" rel="stylesheet">
-    <link href="view/css/my.css" rel="stylesheet">
+    <link href="View/css/shop-homepage.css" rel="stylesheet">
+    <link href="View/css/my.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!-- WARNING: Respond.js doesn't work if you View the page via file:// -->
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -173,10 +173,10 @@ if(isset($_POST['DangKy']))
 
 
     <!-- jQuery -->
-    <script src="view/js/jquery.js"></script>
+    <script src="View/js/jquery.js"></script>
     <!-- Bootstrap Core JavaScript -->
-    <script src="view/js/bootstrap.min.js"></script>
-    <script src="view/js/my.js"></script>
+    <script src="View/js/bootstrap.min.js"></script>
+    <script src="View/js/my.js"></script>
 
 </body>
 

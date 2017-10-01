@@ -23,12 +23,12 @@ include('main/trangnhaxuatban.php');
     <title> Bán Sách</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="view/css/bootstrap.min.css" rel="stylesheet">
+    <link href="View/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="view/css/shop-homepage.css" rel="stylesheet">
-    <link href="view/css/my.css" rel="stylesheet">
-<link href="view/css/TrangChu.css" rel="stylesheet">
+    <link href="View/css/shop-homepage.css" rel="stylesheet">
+    <link href="View/css/my.css" rel="stylesheet">
+<link href="View/css/TrangChu.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -293,10 +293,10 @@ include('main/trangnhaxuatban.php');
     </footer>
     <!-- end Footer -->
     <!-- jQuery -->
-    <script src="view/js/jquery.js"></script>
+    <script src="View/js/jquery.js"></script>
     <!-- Bootstrap Core JavaScript -->
-    <script src="view/js/bootstrap.min.js"></script>
-    <script src="view/js/my.js"></script>
+    <script src="View/js/bootstrap.min.js"></script>
+    <script src="View/js/my.js"></script>
 
 </body>
 
