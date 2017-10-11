@@ -126,26 +126,26 @@ if(isset($_POST['DangNhap']))
 				  	<div class="panel-heading">Đăng nhập</div>
 				  	<div class="panel-body">
 				    	<form method="post" >
-							<div>
-                                <?php 
+							<div id="taikhoan">
+                                 <?php 
                                 if(isset($_SESSION['errormess'])){
                                     ?>
                                     <div class="alert alert-danger"><?=$_SESSION['errormess']?></div>
                                     <?php
                                     unset($_SESSION['errormess']);
                                 }
-                                ?>
+                                ?> 
 				    			<label>Tài Khoản</label>
-							  	<input type="text" class="form-control" placeholder="username" name="username" 
+							  	<input type="text" class="form-control" placeholder="username" name="username" id="username"
 							  	>
 							</div>
 							<br>	
 							<div>
 				    			<label>Mật khẩu</label>
-							  	<input type="password" class="form-control" name="password" placeholder="password">
+							  	<input type="password" class="form-control" name="password" placeholder="password" id="password">
 							</div>
 							<br>
-							<button type="submit" class="btn btn-success" name="DangNhap">Đăng nhập
+							<button type="submit" class="btn btn-success" name="DangNhap" onclick="showresult()">Đăng nhập
 							</button>
 				    	</form>
 				  	</div>
@@ -164,6 +164,7 @@ if(isset($_POST['DangNhap']))
     <!-- Bootstrap Core JavaScript -->
     <script src="View/js/bootstrap.min.js"></script>
     <script src="View/js/my.js"></script>
+
 
 </body>
 

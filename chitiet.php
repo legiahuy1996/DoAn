@@ -261,10 +261,9 @@ include('main/trangchitiet.php');
 
                 ?></div>
                 <div id="Mota">Nội dung tóm tắt:<br /><?=$chitietsach['Mota']?> <br /></div>
-                
+                <span>Soluong : </span><input type="number" id="soluong" min="1"  max="100" align="center" value="1">
                 <div id="Gia"><span style="color: green; font-weight: normal;">Đơn giá:</span><br /><span id="Gia" > <?=number_format($chitietsach['Giaban'])?> VNĐ</span></div>
                 <br />
-                
                 
                    <button type="submit" class="btn btn-primary">
                             Mua hàng

@@ -49,8 +49,9 @@ include('main/trangchu.php');
         <?php
         unset($_SESSION['ketqua']);
     } ?>
-
+   
 </script>
+
 </head>
 
 <body>
@@ -112,10 +113,16 @@ include('main/trangchu.php');
                             } ?>
                     	</a>
                     </li>
-
+                    <li>
+                    <a  title="Bấm vào để xem giỏ hàng của bạn" data-placement="bottom"><i class="glyphicon glyphicon-shopping-cart"> </i>Giỏ Hàng  <span id="giohang"><?php if(isset($_SESSION['tongso']))
+                        echo "(".$_SESSION['tongso'].")"?></span></a>
+                        
+                    </li>
                     <li>
                     	<a href="dangxuat.php">Đăng xuất</a>
                     </li>
+
+                </li>
 
                 </ul>
             </div>
@@ -263,11 +270,40 @@ include('main/trangchu.php');
                         <div id="DonGia" style="color:orange"><font  color="Green">Giá:</font> <?=number_format($value['Giaban'])?> VNĐ</div>
                     </div>
                     <div id="GioHang">
-                         <button type="submit" class="btn btn-primary">
+                         <button onclick="giohang(<?=$value['MaSach']?>)" type="submit" class="btn btn-primary"
+                         >
                             Mua hàng
           <span class="glyphicon glyphicon-shopping-cart"></span> 
         </button> 
+                      <script>
+                        function giohang(id) {
+                          var xhttp;
+                            
+                        xhttp = new XMLHttpRequest();
+                        xhttp.onreadystatechange = function() {
+                            if (xhttp.readyState == 4 && xhttp.status == 200) {
+                              document.getElementById("giohang").innerHTML = xhttp.responseText;
+                              
+                          }
+                      };
+                      xhttp.open("GET", "indexgiohang.php?id="+id, true);
+                      xhttp.send();   
+
+                        var result = confirm("Đã thêm sách vào giỏ hàng, bạn có muốn xem giỏ hàng của mình không ?");
+                      if(result == true)
+                      {
+                        window.location="dangnhap.php";
+                       
+                      }
+                      else
+                      {
                         
+                        
+                      }
+                  }
+             
+            
+              </script>
 
                     </div>
 
