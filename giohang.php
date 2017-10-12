@@ -1,12 +1,13 @@
-<?php
+<?php 
 session_start();
 include('controller/c_index.php');
 $c_index = new C_index();
-$manxb = isset($_GET['manxb'])?$_GET['manxb']:1;
-$current_page = isset($_GET['page'])?$_GET['page']:1;
-include('main/trangnhaxuatban.php');
+$masach = isset($_GET['masach'])?$_GET['masach']:1;
+include('main/trangchitiet.php');
 
 ?>
+
+
 
 
 <!DOCTYPE html>
@@ -24,11 +25,13 @@ include('main/trangnhaxuatban.php');
 
     <!-- Bootstrap Core CSS -->
     <link href="View/css/bootstrap.min.css" rel="stylesheet">
-
     <!-- Custom CSS -->
     <link href="View/css/shop-homepage.css" rel="stylesheet">
     <link href="View/css/my.css" rel="stylesheet">
-<link href="View/css/TrangChu.css" rel="stylesheet">
+    <link href="View/css/TrangChu.css" rel="stylesheet">
+     <link href="View/css/TrangChiTiet.css" rel="stylesheet">
+
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -41,7 +44,7 @@ include('main/trangnhaxuatban.php');
 <body>
 
     <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -111,10 +114,44 @@ include('main/trangnhaxuatban.php');
         </div>
         <!-- /.container -->
     </nav>
-
     <!-- Page Content -->
     <div class="container">
-        <div class="row">
+
+        <!-- slider -->
+        <div class="row carousel-holder">
+            <div class="col-md-12">
+                <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <img class="slide-image" src="HinhAnh/1.jpg" alt="">
+                        </div>
+                        <div class="item">
+                            <img class="slide-image" src="HinhAnh/2.jpg" alt="">
+                        </div>
+                        <div class="item">
+                            <img class="slide-image" src="HinhAnh/3.jpg" alt="">
+                        </div>
+                    </div>
+                    <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left"></span>
+                    </a>
+                    <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- end slide -->
+
+        <div class="space20"></div>
+
+
+        <div class="row main-left">
             <div class="col-md-3 ">
                 <ul class="list-group" id="menu">
                     <li href="#" class="list-group-item menu1 active">
@@ -174,114 +211,118 @@ include('main/trangnhaxuatban.php');
                         }
                         ?>
                     </ul>
-            </div>
 
-            <div class="col-md-9 ">
-                <div class="panel panel-default">
-                    <div class="panel-heading" style="background-color:#337AB7; color:white;">
-                        <h4><b><?=$chitietnxb['TenNXB']?></b></h4>
-                    </div>
-                    <div id="divBody" style="background:White;">
-                
-                <?php 
-                foreach ($chitietsach as $key => $value) {
 
-                    ?>
-                    <div id="SanPham">
-                       <a href="chitiet.php?masach=<?=$value['MaSach']?>">  <div id="AnhBia"><img src="HinhAnhSP/<?=$value['AnhBia']?>" width="100" height="150" /></div></a>
-                       <div id="ThongTin">
-
-                         <?php 
-                         if(strlen($value['TenSach'])<50)
-                         {
-                            ?>
-                            <div id="TenSach" title="<?=$value['TenSach']?>"><?=$value['TenSach']?></div>
-                            <?php
-                        }
-                        else
-                        {
-                            ?>
-                            <div id="TenSach" title="<?=$value['TenSach']?>"><?=mb_substr($value['TenSach'],0,50)?> ...</div>
-                            <?php
-                        }
-                        ?>  
-                        <div id="DonGia" style="color:orange"><font  color="Green">Giá:</font> <?=number_format($value['Giaban'])?> VNĐ</div>
-                    </div>
-                    <div id="GioHang">
-
-                        <button type="submit" class="btn btn-primary">
-                            Thêm vào giỏ hàng
-          <span class="glyphicon glyphicon-shopping-cart"></span> 
-        </button> 
-                    </div>
-
-                    </div>
                    
-                <?php 
-            } 
-            ?>
+                </ul>
             </div>
-            <!-- Pagination -->
-                    <div class="row text-center">
-                        <div class="col-lg-12">
-                            <ul class="pagination">
-                                <?php
-                                $c_index = new C_index();
-                                $total_record = $c_index->getTotalRecordSachByNXB($manxb);
-                                $limit =6;
-                                $total_page = ceil($total_record['Totalrecord']/$limit);
-                                if($total_page>1)
-                                {
-                                    if ($current_page > $total_page){
-                                        $current_page = $total_page;
-                                    }
-                                    else if ($current_page < 1){
-                                        $current_page = 1;
-                                    }
-                                    if ($current_page > 1 && $total_page > 1){
-                                        ?>
-                                        <li>
-                                            <a href="chude.php?machude=<?=$chitietchude['machude']?>&&page=<?=($current_page-1)?>">&laquo;</a>
-                                        </li>
-                                        <?php
-                                    }
-                                    for ($i=1; $i<=$total_page ; $i++) 
-                                    {
-                                        if($i == $current_page)
-                                            {?>
-                                                <li class="active">
-                                                    <span><?=$i?></span>
-                                                </li>
-                                                <?php
-                                            }
-                                            else
-                                                {    ?>
 
-                                                    <li>
-                                                        <a href="chude.php?machude=<?=$chitietchude['machude']?>&&page=<?=$i?>"><?=$i?></a>
-                                                    </li>
-                                                    <?php
-                                                }
-                                            }
-                                            if ($current_page < $total_page && $total_page > 1)
-                                            {
-                                               ?>
+            <div class="col-md-9">
+             <div class="panel panel-default">
+              <div class="panel-heading" style="background-color:#337AB7; color:white;" >
+                <h2 style="margin-top:0px; margin-bottom:0px;"> Giỏ hàng của bạn</h2>
+           </div>
 
-                                               <li>
-                                                <a href="chude.php?machude=<?=$chitietchude['machude']?>&&page=<?=($current_page+1)?>">&raquo;</a>
-                                            </li>
-                                            <?php
-                                        }
-                                }?>
-                            </ul>
-                        </div>
-                    </div>
-                    <!-- /.row -->
-        </div>
+           <div class="panel-body">
+    <?php
+    
+    if(sizeof($_SESSION['giohang'])>0)
+    {
+        ?>
+        <table id="divGioHang">
+            <tr>
+                <td>Mã sách</td>
 
+                <td>Tên sách</td>
+
+                <td>Ảnh bìa</td>
+
+                <td>Đơn giá</td>
+
+
+                <td>Số lượng</td>
+
+                <td>Thành tiền</td>
+            </tr>
+
+
+            <?php foreach ($_SESSION['giohang'] as $key => $value) 
+            { ?>
+               <tr>
+                <td><?=$value['masach']?></td>
+
+                <td><?=$value['tensach']?></td>
+
+                <td><a href="chitiet.php?masach=<?=$value['masach']?>"><img src="HinhAnhSP/<?=$value['anhbia']?>" width="50" height="50" /></a></td>
+
+                <td>
+                 <?=number_format($value['Giaban'])?> VNĐ
+             </td>
+
+             <td><input type="number" name="soluong" min="0" max="100" align="center" value="<?=$value['soluong']?>"></td>
+
+             <td><?=number_format($value['thanhtien'])?> VNĐ</td>
+             <td><a href="xoagiohang.php?masach=<?=$_SESSION['giohang'][$value['masach']]['masach']?>" ><button>Xoá</button></a> </td>
+
+         </tr>
+
+
+
+         <tr>
+           <?php
+
+
+       }?>
+
+       
+
+   </tr>
+   <tr>
+    <td colspan="6" style="text-align:right;color:blue">
+      <button type="submit"> Đặt hàng</button>
+  </td>
+</tr>
+</table>
+<?php
+}
+else
+{
+    
+    echo '<h2>Chưa có sách trong giỏ hàng</h2>';
+}
+
+?>   
+
+
+
+<style>
+    #divGioHang {
+        border:2px solid #EEEEEE ;
+        
+    }
+        #divGioHang td {
+            padding:10px;
+            border: 1px solid #EEEEEE;
+        }
+</style>
+           </div>
+</div>
+        
+        
+        
+    </div>
+   
+       
+       
+     </div>
+ </div>
+
+</div>
+      
+        <!-- /.row -->
     </div>
     <!-- end Page Content -->
-  
+
     <!-- Footer -->
     <hr>
     <footer>
@@ -289,7 +330,7 @@ include('main/trangnhaxuatban.php');
             <div class="col-md-12">
                 <p>Copyright &copy; Your Website 2014</p>
             </div>
-        </div>
+        </div>  
     </footer>
     <!-- end Footer -->
     <!-- jQuery -->

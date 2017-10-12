@@ -15,7 +15,8 @@ if(!isset($_SESSION['giohang'][$id]))
 	$soluong =1; 
 	$Giaban = $ketqua['Giaban'];
 	$thanhtien = $soluong * $Giaban;
-	$array = array('masach'=>$masach,'tensach'=>$tensach,'soluong'=>$soluong,'Giaban'=>$Giaban,'thanhtien'=>$thanhtien);
+	$anhbia = $ketqua['AnhBia'];
+	$array = array('masach'=>$masach,'tensach'=>$tensach,'soluong'=>$soluong,'Giaban'=>$Giaban,'thanhtien'=>$thanhtien,'anhbia'=>$anhbia);
 	$_SESSION['giohang'][$id]=$array;
 	
 	foreach ($_SESSION['giohang'] as $key => $value) {

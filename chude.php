@@ -209,7 +209,7 @@ include('main/trangchude.php');
                     </div>
                     <div id="GioHang">
  <button type="submit" class="btn btn-primary">
-                            Mua hàng
+                            Thêm vào giỏ hàng
           <span class="glyphicon glyphicon-shopping-cart"></span> 
         </button> 
                     </div>

@@ -4,7 +4,10 @@ include('controller/c_index.php');
 $c_index = new C_index();
 $current_page = isset($_GET['page'])?$_GET['page']:1;
 include('main/trangchu.php');
-
+if(sizeof($_SESSION['giohang'])==0)
+    unset($_SESSION['tongso']);
+else
+    $_SESSION['tongso']= sizeof($_SESSION['giohang']);
 ?>
 
 
@@ -114,7 +117,7 @@ include('main/trangchu.php');
                     	</a>
                     </li>
                     <li>
-                    <a  title="Bấm vào để xem giỏ hàng của bạn" data-placement="bottom"><i class="glyphicon glyphicon-shopping-cart"> </i>Giỏ Hàng  <span id="giohang"><?php if(isset($_SESSION['tongso']))
+                    <a  href="giohang.php" title="Bấm vào để xem giỏ hàng của bạn" data-placement="bottom"><i class="glyphicon glyphicon-shopping-cart"> </i>Giỏ Hàng  <span id="giohang"><?php if(isset($_SESSION['tongso']))
                         echo "(".$_SESSION['tongso'].")"?></span></a>
                         
                     </li>
@@ -272,7 +275,7 @@ include('main/trangchu.php');
                     <div id="GioHang">
                          <button onclick="giohang(<?=$value['MaSach']?>)" type="submit" class="btn btn-primary"
                          >
-                            Mua hàng
+                            Thêm vào giỏ hàng
           <span class="glyphicon glyphicon-shopping-cart"></span> 
         </button> 
                       <script>
@@ -292,7 +295,7 @@ include('main/trangchu.php');
                         var result = confirm("Đã thêm sách vào giỏ hàng, bạn có muốn xem giỏ hàng của mình không ?");
                       if(result == true)
                       {
-                        window.location="dangnhap.php";
+                        window.location="giohang.php";
                        
                       }
                       else
