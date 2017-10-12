@@ -4,10 +4,14 @@ include('controller/c_index.php');
 $c_index = new C_index();
 $current_page = isset($_GET['page'])?$_GET['page']:1;
 include('main/trangchu.php');
-if(sizeof($_SESSION['giohang'])==0)
-    unset($_SESSION['tongso']);
-else
-    $_SESSION['tongso']= sizeof($_SESSION['giohang']);
+if(isset($_SESSION['giohang']))
+{
+    if(sizeof($_SESSION['giohang'])==0)
+        unset($_SESSION['tongso']);
+    else
+        $_SESSION['tongso']= sizeof($_SESSION['giohang']);
+}
+
 ?>
 
 
