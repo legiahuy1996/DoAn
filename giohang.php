@@ -4,6 +4,17 @@ include('controller/c_index.php');
 $c_index = new C_index();
 $masach = isset($_GET['masach'])?$_GET['masach']:1;
 include('main/trangchitiet.php');
+if(isset($_SESSION['giohang']))
+{
+    if(sizeof($_SESSION['giohang'])==0)
+    {
+        unset($_SESSION['giohang']);
+        unset($_SESSION['tongso']);
+    }
+    else
+        $_SESSION['tongso']= sizeof($_SESSION['giohang']);
+}
+
 
 ?>
 
@@ -225,8 +236,9 @@ include('main/trangchitiet.php');
 
            <div class="panel-body">
     <?php
-    
-    if(sizeof($_SESSION['giohang'])>0)
+    if(isset($_SESSION['giohang']))
+    {
+        if(sizeof($_SESSION['giohang'])>0)
     {
         ?>
         <table id="divGioHang">
@@ -272,8 +284,10 @@ include('main/trangchitiet.php');
            <?php
 
 
-       }?>
-
+       }
+    }
+    
+?>
        
 
    </tr>
@@ -288,7 +302,11 @@ include('main/trangchitiet.php');
 else
 {
     
-    echo '<h2>Chưa có sách trong giỏ hàng</h2>';
+   
+    ?>
+
+   <h2> Chưa có sách nào trong giỏ hàng của bạn . Click vào <a href="<?=$_SERVER['HTTP_REFERER']?>"> đây </a> để quay lại</h2>
+    <?php
 }
 
 ?>   
