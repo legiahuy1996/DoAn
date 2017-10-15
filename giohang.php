@@ -271,10 +271,12 @@ if(isset($_SESSION['giohang']))
                  <?=number_format($value['Giaban'])?> VNĐ
              </td>
 
-             <td><input type="number" name="soluong" min="0" max="100" align="center" value="<?=$value['soluong']?>"></td>
+             <td><input type="number" id="<?=$value['masach']?>"   name="soluong" min="0" max="100" align="center" value="<?=$value['soluong']?>"></td>
 
              <td><?=number_format($value['thanhtien'])?> VNĐ</td>
-             <td><a href="xoagiohang.php?masach=<?=$_SESSION['giohang'][$value['masach']]['masach']?>" ><button>Xoá</button></a> </td>
+             <td><a href="xoagiohang.php?masach=<?=$_SESSION['giohang'][$value['masach']]['masach']?>" ><button>Xoá</button>
+             </a> <button onclick="soluong(<?=$value['masach']?>,<?=$value['Giaban']?>)">Sua</button>
+             </td>
 
          </tr>
 
@@ -294,10 +296,20 @@ if(isset($_SESSION['giohang']))
    <tr>
     <td colspan="6" style="text-align:right;color:blue">
       <button type="submit"> Đặt hàng</button>
+      <script type="text/javascript">
+        function soluong(id,giaban)
+        {
+            var soluong =parseInt($('#'+id+'').val());
+            
+            window.location="suagiohang.php?masach="+id+"&&soluong="+soluong+"&&giaban="+giaban;
+        }
+         
+      </script>
   </td>
 </tr>
 </table>
 <?php
+
 }
 else
 {
@@ -305,7 +317,7 @@ else
    
     ?>
 
-   <h2> Chưa có sách nào trong giỏ hàng của bạn . Click vào <a href="<?=$_SERVER['HTTP_REFERER']?>"> đây </a> để quay lại</h2>
+   <h2> Chưa có sách nào trong giỏ hàng của bạn . Click vào <a href="index.php"> đây </a> để quay lại</h2>
     <?php
 }
 

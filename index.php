@@ -9,7 +9,14 @@ if(isset($_SESSION['giohang']))
     if(sizeof($_SESSION['giohang'])==0)
         unset($_SESSION['tongso']);
     else
-        $_SESSION['tongso']= sizeof($_SESSION['giohang']);
+       {
+        $tongso=0;
+        foreach ($_SESSION['giohang'] as $key => $value) {
+            $tongso+=$value['soluong'];
+
+        }
+        $_SESSION['tongso'] = $tongso;
+       }
 }
 
 ?>
