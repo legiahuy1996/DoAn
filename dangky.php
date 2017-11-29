@@ -125,9 +125,9 @@ if(isset($_POST['DangKy']))
                 <div class="panel panel-default">
 				  	<div class="panel-heading">Đăng ký tài khoản</div>
 				  	<div class="panel-body">
-				    	<form method="post">
-				    		<div>
-                                <?php
+				    	<form method="post" action="xulydangky.php">
+				    		<div id="taikhoan">
+                                   <?php
                                 if(isset($_SESSION['errormess']))
                                 {?>
                                     <div class="alert alert-danger"><?=$_SESSION['errormess']?></div>
@@ -135,11 +135,17 @@ if(isset($_POST['DangKy']))
 
                                     <?php
                                 }
-
                                 ?>
 				    			<label>Tài khoản</label>
-							  	<input type="text" maxlength="50" class="form-control" placeholder="Username" name="name" aria-describedby="basic-addon1" required>
+							  	<input type="text" maxlength="50" class="form-control" placeholder="Username" name="Username" aria-describedby="basic-addon1" required>
 							</div>
+                            <br>
+                             <div >
+                                
+                                <label>Họ và tên</label>
+                                <input type="text" maxlength="15" class="form-control" placeholder="fullname" name="fullname" aria-describedby="basic-addon1" required>
+                            </div>
+                            
 							<br>
 							<div>
 				    			<label>Email</label>
@@ -147,6 +153,7 @@ if(isset($_POST['DangKy']))
 							  	>
 							</div>
 							<br>	
+                            
 							<div>
 				    			<label>Nhập mật khẩu</label>
 							  	<input type="password" maxlength="50" class="form-control" name="password" aria-describedby="basic-addon1" required>
@@ -157,10 +164,38 @@ if(isset($_POST['DangKy']))
 							  	<input type="password" maxlength="50" class="form-control" name="passwordAgain" aria-describedby="basic-addon1" required>
 							</div>
 							<br>
+                            <div>
+                                <label>Ngày sinh</label>
+                                <input type="date" maxlength="200" class="form-control"  name="birthdate" aria-describedby="basic-addon1" required 
+                                >
+                            </div>
+                            <br>    
+                            <div>
+                                <label>Giới tính</label>
+                            </br>
+                                <input type="radio"   name="sex" id="nam" value="name" 
+                                >Nam
+                                 <input type="radio"   name="sex"  id="nu" value="nữ" 
+                                >Nữ
+                            </div>
+                            <br>    
+                            <div >
+                                
+                                <label>Số điện thoại</label>
+                                <input type="text" maxlength="15" class="form-control" name="phone" aria-describedby="basic-addon1" required>
+                            </div>
+                            <br>
+                            <div >
+                                
+                                <label>Địa chỉ</label>
+                                <input type="text" maxlength="100" class="form-control"  name="address" aria-describedby="basic-addon1" required>
+                            </div>
+                            <br>
 							<button type="submit" name="DangKy" class="btn btn-success">Đăng ký
 							</button>
 
 				    	</form>
+                      
 				  	</div>
 				</div>
             </div>

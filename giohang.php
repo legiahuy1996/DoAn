@@ -234,7 +234,7 @@ if(isset($_SESSION['giohang']))
                 <h2 style="margin-top:0px; margin-bottom:0px;"> Giỏ hàng của bạn</h2>
            </div>
 
-           <div class="panel-body">
+           <div id="panel-body" class="panel-body">
     <?php
     if(isset($_SESSION['giohang']))
     {
@@ -295,19 +295,36 @@ if(isset($_SESSION['giohang']))
    </tr>
    <tr>
     <td colspan="6" style="text-align:right;color:blue">
-      <button type="submit"> Đặt hàng</button>
+      <button id="btndathang" onclick="dathang()" type="submit"> Đặt hàng</button>
+
       <script type="text/javascript">
         function soluong(id,giaban)
         {
             var soluong =parseInt($('#'+id+'').val());
             
             window.location="suagiohang.php?masach="+id+"&&soluong="+soluong+"&&giaban="+giaban;
+            alert('sửa thành công !');
         }
-         
+        function dathang() {
+                          var xhttp;
+                            
+                        xhttp = new XMLHttpRequest();
+                        xhttp.onreadystatechange = function() {
+                            if (xhttp.readyState == 4 && xhttp.status == 200) {
+                              document.getElementById("panel-body").innerHTML = xhttp.responseText;
+                              
+                          }
+                      };
+                      xhttp.open("GET", "dathang.php", true);
+                      xhttp.send();   
+         }
       </script>
   </td>
+
 </tr>
+
 </table>
+<div id="dathang"></div>
 <?php
 
 }

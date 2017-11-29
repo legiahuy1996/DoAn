@@ -337,7 +337,7 @@ if(isset($_SESSION['giohang']))
                                 $limit =6;
                                 $total_page = ceil($total_record['Totalrecord']/$limit);
                                 if($total_page>1)
-                                {
+                                {   
                                     if ($current_page > $total_page){
                                     $current_page = $total_page;
                                 }

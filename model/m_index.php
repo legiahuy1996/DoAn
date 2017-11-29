@@ -86,9 +86,9 @@ class M_index extends database{
 		$sql = "SELECT * from khachhang where taikhoan = '$username' && matkhau ='$password'";
 		return $this->get_row($sql);
 	}
-	function DangKy($username,$password,$email)
+	function DangKy($username,$password,$email,$phone,$address,$fullname,$birthday,$gioitinh)
 	{
-		$sql = "INSERT into khachhang VALUES(NULL,NULL,NULL,NULL,NULL,'$username','$password','$email',NULL)";
+		$sql = "INSERT into khachhang VALUES('$username','$fullname','$birthday','$gioitinh','$phone','$username','$password','$email','$address')";
 		$this->execute($sql);
 	}
 	function getlistKhachHang()
@@ -97,4 +97,25 @@ class M_index extends database{
 		return $this->get_list($sql);
 
 	}
+	function getKHByName($name)
+	{	
+		$sql= "SELECT * from khachhang where taikhoan ='$name'";
+		return $this->get_row($sql);
+
+	}
+	function dathang($MaKH,$diachi)
+	{
+
+		$day = getdate();
+		$ngay = $day['mday']."-".$day['mon']."-".$day['year'];
+		$sql = "INSERT into donhang VALUES('$MaKH','$MaKH',NULL,'$ngay',NULL,true,'$diachi',N'Tiền mặt')";
+		return $this->execute($sql);
+	}
+	function getlistdonhangbyID($id)
+	{
+		$sql = "SELECT * from donhang where Madonhang = '$id' ";
+		return $this->get_row($sql);
+	}
+
+
 }

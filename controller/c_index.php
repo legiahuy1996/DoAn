@@ -115,10 +115,10 @@ class C_index{
 		$result = $m_index->DangNhap($username,md5($password));
 		return $result;
 	}
-	function DangKy($username,$password,$email)
+	function DangKy($username,$password,$email,$phone,$address,$fullname,$birthday,$gioitinh)
 	{
 		$m_index = new M_index();
-		$result = $m_index->DangKy($username,md5($password),$email);
+		$result = $m_index->DangKy($username,md5($password),$email,$phone,$address,$fullname,$birthday,$gioitinh);
 		return $result;
 
 	}
@@ -126,6 +126,24 @@ class C_index{
 	{
 		$m_index = new M_index();
 		$result = $m_index->getlistKhachHang();
+		return $result;
+	}
+	function getKHByName($name)
+	{
+		$m_index = new M_index();
+		$result = $m_index->getKHByName($name);
+		return $result;
+	}
+	function dathang($MaKH,$diachi)
+	{
+		$m_index = new M_index();
+		$result = $m_index->dathang($MaKH,$diachi);
+		return $result;
+	}
+	function getlistdonhang($id)
+	{
+		$m_index = new M_index();
+		$result = $m_index->getlistdonhangbyID($id);
 		return $result;
 	}
 }
