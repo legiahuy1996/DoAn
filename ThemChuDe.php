@@ -376,7 +376,7 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Sửa Sách</h1>
+                    <h1 class="page-header">Thêm sách</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -385,76 +385,21 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Thông tin Sách
+                            Thông tin chủ đề
                         </div>
-                        <?php
-                        include('controller/c_admin.php');
-                        $c_admin = new C_admin();
-                        $masach = $_GET['masach'];
-                        $sach = $c_admin->getSachByID($masach);
-                        $listchude = $c_admin->getlistchude();
-                         $listnxb = $c_admin->getlistnxb();
-                        
-                        ?>
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <form role="form" action="XuLySuaSach.php?masach=<?=$sach['MaSach']?>" method="post" enctype="multipart/form-data">
+                                    <form role="form" action="XuLyThemChuDe.php" method="post" >
                                       
                                         <div class="form-group">
-                                           <label>Tên sách</label>
-                                            <input name="tensach" class="form-control" value="<?=$sach['TenSach']?>" placeholder="Tên sách">
+                                           
+                                            <input name="tenchude" class="form-control" placeholder="Tên Chủ Đề">
                                         </div>
                                      
-                                      <div class="form-group">
-                                           <lable>Giá bán</lable>
-                                        <input name="giaban" type="number" step="1000" class="form-control" value="<?=$sach['Giaban']?>" placeholder="Giá bán">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Ảnh bìa</label>
-                                            <input name="hinh"  type="file">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Mô tả</label>
-                                            <textarea name="mota"  class="form-control" rows="3"><?=$sach['Mota']?></textarea>
-                                        </div>
-                                    <div class="form-group">
-                                            <label>Chủ đề</label>
-                                            <select name="chude" class="form-control">
-                                                <?php
-
-                                                foreach ($listchude as $key => $value) 
-                                                {
-
-                                                    ?>
-                                                      <option value="<?=$value['machude']?>"><?php echo $value["tenchude"] ?>  </option>
-                                                      <?php
-                                                      
-                                                }
-
-                                                ?>
-                                            
-                                             
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Nhà xuất bản</label>
-                                            <select name="tennxb"  class="form-control">
-                                                <?php
-                                                foreach ($listnxb as $key => $value) 
-                                                {
-                                                    ?>
-                                                      <option value="<?=$value['MaNXB']?>"><?=$value['TenNXB']?>  </option>
-                                                      <?php
-                                                }
-                                                ?>
-                                              
-                                             
-                                            </select>
-                                        </div>
+                                    
                                      
-                                     
-                                        <button name="submit" type="submit" class="btn btn-default">Sửa</button>
+                                        <button name="submit" type="submit" class="btn btn-default">Thêm</button>
                                         
                                     </form>
                                 </div>

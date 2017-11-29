@@ -51,7 +51,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Quản lý Sách</a>
+                <a class="navbar-brand" href="admin.php">Khu Vực Quản Trị</a>
             </div>
             <!-- /.navbar-header -->
 

@@ -355,7 +355,7 @@
                                            
                                             <td><?=$value['MaChuDe']?></td>
                                             <td><?=$value['MaNXB']?></td>
-                                            <td colspan="2"><a href="SuaSach.php?masach=<?=$value['MaSach']?>" class="btn btn-warning"> Sửa </a> <a href="XuLyXoaSach.php?masach=<?=$value['MaSach']?>" class="btn btn-danger">Xoá</a></td>
+                                            <td colspan="2"><a href="SuaSach.php?masach=<?=$value['MaSach']?>" class="btn btn-warning"> Sửa </a> <a onclick="xoa()" href="XuLyXoaSach.php?masach=<?=$value['MaSach']?>" class="btn btn-danger">Xoá</a></td>
                                         </tr>
 
 
@@ -371,6 +371,7 @@
                             </table>
                            
                         </div>
+                     
                         <!-- /.panel-body -->
                     </div>
                     <!-- /.panel -->

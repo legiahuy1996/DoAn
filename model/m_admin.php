@@ -18,7 +18,7 @@ class M_admin extends database{
 	}
 	function themsach($tensach,$tenchude,$tennxb,$giaban,$ngay,$name,$mota)
 	{
-		$sql = "INSERT into sach values(NULL,'$tensach','$giaban','$mota','$ngay','$name','$tenchude','$tennxb','1')" ;
+		$sql = "INSERT into sach values(NULL,N'$tensach','$giaban',N'$mota','$ngay','$name','$tenchude','$tennxb','1')" ;
 		return $this->execute($sql);
 	}
 	function xoasach($masach)
@@ -37,6 +37,26 @@ class M_admin extends database{
 			$sql="UPDATE sach set TenSach =N'$tensach' ,Giaban ='$giaban' , Mota=N'$mota' , MaChuDe='$tenchude' , MaNXB = '$tennxb',NgayCapNhat ='$ngay' where MaSach='$masach' ";
 		else
 			$sql ="UPDATE sach set TenSach =N'$tensach' , Giaban ='$giaban' , Mota=N'$mota', MaChuDe='$tenchude' , MaNXB = '$tennxb' , AnhBia = '$name',NgayCapNhat ='$ngay' where MaSach='$masach'  " ;
+		return $this->execute($sql);
+	}
+	function getChudeByID($machude)
+	{
+		$sql = "SELECT * from chude where machude = $machude";
+		return $this->get_row($sql);
+	}
+	function themchude($tenchude)
+	{
+		$sql = "INSERT into chude values(NULL,N'$tenchude')" ;
+		return $this->execute($sql);
+	}
+	function xoachude($machude)
+	{
+		$sql = "DELETE from chude where machude = '$machude'";
+		return $this->execute($sql);
+	}
+	function suachude($machude,$tenchude)
+	{
+		$sql = "UPDATE chude set tenchude =N'$tenchude' where machude = '$machude' ";
 		return $this->execute($sql);
 	}
 }
