@@ -376,7 +376,7 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Thêm sách</h1>
+                    <h1 class="page-header">Sửa Sách</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -387,36 +387,38 @@
                         <div class="panel-heading">
                             Thông tin Sách
                         </div>
+                        <?php
+                        include('controller/c_admin.php');
+                        $c_admin = new C_admin();
+                        $masach = $_GET['masach'];
+                        $sach = $c_admin->getSachByID($masach);
+                        $listchude = $c_admin->getlistchude();
+                         $listnxb = $c_admin->getlistnxb();
+                        
+                        ?>
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <form role="form" action="XuLyThemSach.php" method="post" enctype="multipart/form-data">
+                                    <form role="form" action="XuLySuaSach.php?masach=<?=$sach['MaSach']?>" method="post" enctype="multipart/form-data">
                                       
                                         <div class="form-group">
-                                           
-                                            <input name="tensach" class="form-control" placeholder="Tên sách">
+                                           <label>Tên sách</label>
+                                            <input name="tensach" class="form-control" value="<?=$sach['TenSach']?>" placeholder="Tên sách">
                                         </div>
                                      
                                       <div class="form-group">
-                                           
-                                            <input name="giaban" type="number" step="1000" class="form-control" placeholder="Giá bán">
+                                           <lable>Giá bán</lable>
+                                        <input name="giaban" type="number" step="1000" class="form-control" value="<?=$sach['Giaban']?>" placeholder="Giá bán">
                                         </div>
                                         <div class="form-group">
                                             <label>Ảnh bìa</label>
-                                            <input name="hinh" type="file">
+                                            <input name="hinh"  type="file">
                                         </div>
                                         <div class="form-group">
                                             <label>Mô tả</label>
-                                            <textarea name="mota" class="form-control" rows="3"></textarea>
+                                            <textarea name="mota"  class="form-control" rows="3"><?=$sach['Mota']?></textarea>
                                         </div>
-                                       <?php 
-                                       include('controller/c_admin.php');
-                                       $c_admin = new C_admin();
-                                       $listchude = $c_admin->getlistchude();
-                                       $listnxb = $c_admin->getlistnxb();
-                                        // var_dump($listchude);
-                                       ?>
-                                        <div class="form-group">
+                                    <div class="form-group">
                                             <label>Chủ đề</label>
                                             <select name="chude" class="form-control">
                                                 <?php
@@ -435,9 +437,9 @@
                                              
                                             </select>
                                         </div>
-                                         <div class="form-group">
+                                        <div class="form-group">
                                             <label>Nhà xuất bản</label>
-                                            <select name="tennxb" ="" class="form-control">
+                                            <select name="tennxb"  class="form-control">
                                                 <?php
                                                 foreach ($listnxb as $key => $value) 
                                                 {
@@ -451,7 +453,8 @@
                                             </select>
                                         </div>
                                      
-                                        <button name="submit" type="submit" class="btn btn-default">Thêm</button>
+                                     
+                                        <button name="submit" type="submit" class="btn btn-default">Sửa</button>
                                         
                                     </form>
                                 </div>

@@ -5,7 +5,7 @@ if(isset($_POST["submit"]))
 {
 	$tensach = $_POST["tensach"];
 	$tennxb=$_POST["tennxb"];
-	$tenchude=$_POST["tenchude"];
+	$tenchude=$_POST["chude"];
 	$giaban = $_POST["giaban"];
 	$mota = $_POST["mota"];
 	$arrImg = array("image/png", "image/jpeg", "image/bmp");
@@ -27,10 +27,13 @@ if(isset($_POST["submit"]))
 		}
 	}
 	
-	$machude = $c_admin->getIDchudebyname($tenchude);
-	var_dump($machude);
-	// $manxb = $c_admin->getIDnxbbyname($tennxb);
-	// // $result = $c_admin->themsach($tensach,$machude,$manxb,$giaban,$name,$mota);
-	// var_dump($tensach,$machude,$manxb,$giaban,$name,$mota);
+
+	
+	$day = getdate();
+		$ngay = $day['year']."-".$day['mon']."-".$day['mday'];
+	 $result = $c_admin->themsach($tensach,$tenchude,$tennxb,$giaban,$name,$mota,$ngay);
+	 	
+		
+	 header('location:admin.php');
 }
 ?>

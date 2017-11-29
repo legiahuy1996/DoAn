@@ -29,12 +29,27 @@ class C_admin{
 		$m_admin = new M_admin();
 		return $m_admin->getIDchudebyname($tenchude);
 	}
-	function themsach($tensach,$machude,$manxb,$giaban,$name,$mota)
+	function themsach($tensach,$tenchude,$tennxb,$giaban,$name,$mota,$ngay)
 	{
 		$m_admin = new M_admin();
-		$day = getdate();
-		$ngay = $day['mday']."-".$day['mon']."-".$day['year'];
-		return $m_admin->themsach($tensach,$machude,$manxb,$giaban,$ngay,$name,$mota);
+	
+
+		return $m_admin->themsach($tensach,$tenchude,$tennxb,$giaban,$ngay,$name,$mota);
+	}
+	function xoasach($masach)
+	{
+		$m_admin = new M_admin();
+		return $m_admin->xoasach($masach);
+	}
+	function suasach($tensach,$tenchude,$tennxb,$giaban,$name,$mota,$ngay,$masach)
+	{
+		$m_admin = new M_admin();
+		return $m_admin->suasach($tensach,$tenchude,$tennxb,$giaban,$name,$mota,$ngay,$masach);
+	}
+	function getSachByID($masach)
+	{
+		$m_admin = new M_admin();
+		return $m_admin->getSachByID($masach);
 	}
 
 }
