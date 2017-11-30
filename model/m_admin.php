@@ -59,4 +59,24 @@ class M_admin extends database{
 		$sql = "UPDATE chude set tenchude =N'$tenchude' where machude = '$machude' ";
 		return $this->execute($sql);
 	}
+	function getNXBByID($ma)
+	{
+		$sql = "SELECT * from nhaxuatban where MaNXB = $ma";
+		return $this->get_row($sql);
+	}
+	function suanxb($ma,$ten,$diachi,$SDT)
+	{
+		$sql = "UPDATE nhaxuatban set TenNXB = N'$ten', Diachi = N'$diachi',SDT = $SDT where MaNXB = $ma";
+		return $this->execute($sql);
+	}
+	function themsdt($tennxb,$diachi,$sdt)
+	{
+		$sql = "INSERT into nhaxuatban values(NULL,N'$tennxb',N'$diachi','$sdt')";
+		return $this->execute($sql);
+	}
+	function xoanxb($ma)
+	{
+		$sql ="DELETE from nhaxuatban where MaNXB = $ma";
+		return $this->execute($sql);
+	}
 }

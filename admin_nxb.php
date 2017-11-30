@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Quản lý sách</title>
+    <title>Quản lý Sách</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="Admin/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -51,7 +51,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="admin.php">Khu Vực Quản Trị</a>
+                <a class="navbar-brand" href="admin.php">Khu vực quản trị</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -265,7 +265,7 @@
             </ul>
             <!-- /.navbar-top-links -->
 
-            <div class="navbar-default sidebar" role="navigation">
+           <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                         <li class="sidebar-search">
@@ -280,93 +280,25 @@
                             <!-- /input-group -->
                         </li>
                         <li>
-                            <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                            <a href="admin_chude.php"></i> Quản lý chủ đề</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="flot.html">Flot Charts</a>
-                                </li>
-                                <li>
-                                    <a href="morris.html">Morris.js Charts</a>
-                                </li>
-                            </ul>
+                            <a href="admin_nxb.php"></i> Quản lý nhà xuất bản</a>
+                            
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="tables.html"><i class="fa fa-table fa-fw"></i> Tables</a>
+                            <a href="admin_tacgia.php"></i> Quản lý tác giả</a>
                         </li>
                         <li>
-                            <a href="forms.html"><i class="fa fa-edit fa-fw"></i> Forms</a>
+                            <a href="admin_khachhang.php"></i>Quản lý khách hàng</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-wrench fa-fw"></i> UI Elements<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="panels-wells.html">Panels and Wells</a>
-                                </li>
-                                <li>
-                                    <a href="buttons.html">Buttons</a>
-                                </li>
-                                <li>
-                                    <a href="notifications.html">Notifications</a>
-                                </li>
-                                <li>
-                                    <a href="typography.html">Typography</a>
-                                </li>
-                                <li>
-                                    <a href="icons.html"> Icons</a>
-                                </li>
-                                <li>
-                                    <a href="grid.html">Grid</a>
-                                </li>
-                            </ul>
+                            <a href="admin_donhang.php"></i> Quản lý đơn hàng</a>
+                            
                             <!-- /.nav-second-level -->
                         </li>
-                        <li>
-                            <a href="#"><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="#">Second Level Item</a>
-                                </li>
-                                <li>
-                                    <a href="#">Second Level Item</a>
-                                </li>
-                                <li>
-                                    <a href="#">Third Level <span class="fa arrow"></span></a>
-                                    <ul class="nav nav-third-level">
-                                        <li>
-                                            <a href="#">Third Level Item</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Third Level Item</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Third Level Item</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Third Level Item</a>
-                                        </li>
-                                    </ul>
-                                    <!-- /.nav-third-level -->
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-files-o fa-fw"></i> Sample Pages<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="blank.html">Blank Page</a>
-                                </li>
-                                <li>
-                                    <a href="login.html">Login Page</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
-                    </ul>
+                      
                 </div>
                 <!-- /.sidebar-collapse -->
             </div>
@@ -376,8 +308,10 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Thêm Chủ đề</h1>
+                  <h1 class="page-header">Trang quản trị</h1>
+                    <a href="ThemNXB.php" class="btn btn-primary">Thêm nhà xuất bản</a>
                 </div>
+                <div id="Them"></div>
                 <!-- /.col-lg-12 -->
             </div>
             <!-- /.row -->
@@ -385,29 +319,50 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Thông tin chủ đề
+                            Quản lý Nhà Xuất Bản
                         </div>
+                        <!-- /.panel-heading -->
                         <div class="panel-body">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <form role="form" action="XuLyThemChuDe.php" method="post" >
-                                      
-                                        <div class="form-group">
-                                           
-                                            <input name="tenchude" class="form-control" placeholder="Tên Chủ Đề">
-                                        </div>
-                                     
-                                    
-                                     
-                                        <button name="submit" type="submit" class="btn btn-default">Thêm</button>
+                            <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                <thead>
+                                    <tr>
+                                        <th>Mã nhà xuất bản</th>
+                                        <th>Tên nhà xuất bản</th>
+                                        <th>Địa chỉ</th>
+                                        <th>SĐT</th>
                                         
-                                    </form>
-                                </div>
-                                <!-- /.col-lg-6 (nested) -->
-                                
-                                <!-- /.col-lg-6 (nested) -->
-                            </div>
-                            <!-- /.row (nested) -->
+                                      <th>Thao tác</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+                                    include('controller/c_admin.php');
+                                    $m_admin= new M_admin();
+                                    $listnxb = $m_admin->getlistnxb();
+                                    
+                                    foreach ($listnxb as $key => $value) {
+                                        ?>
+                                        <tr>
+                                            <td><?=$value['MaNXB']?></td>
+                                            <td><?=$value['TenNXB']?></td>
+                                            <td><?=$value['Diachi']?></td>
+                                            <td><?=$value['SDT']?></td>
+                                            
+                                             <td colspan="2"><a href="SuaNXB.php?manxb=<?=$value['MaNXB']?>" class="btn btn-warning"> Sửa </a> <a  href="XuLyXoaNXB.php?manxb=<?=$value['MaNXB']?>" class="btn btn-danger">Xoá</a></td>
+                                        </tr>
+
+
+
+                                        <?php
+                                    }
+
+
+
+                                    ?>
+                                    
+                                </tbody>
+                            </table>
+                           
                         </div>
                         <!-- /.panel-body -->
                     </div>
@@ -416,13 +371,14 @@
                 <!-- /.col-lg-12 -->
             </div>
             <!-- /.row -->
+          
         </div>
         <!-- /#page-wrapper -->
 
     </div>
     <!-- /#wrapper -->
 
-  <!-- jQuery -->
+    <!-- jQuery -->
     <script src="Admin/vendor/jquery/jquery.min.js"></script>
 
     <!-- Bootstrap Core JavaScript -->

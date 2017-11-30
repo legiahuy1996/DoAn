@@ -376,7 +376,7 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Thêm Chủ đề</h1>
+                    <h1 class="page-header">Sửa chủ đề</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -387,19 +387,33 @@
                         <div class="panel-heading">
                             Thông tin chủ đề
                         </div>
+                        <?php
+                        include('model/m_admin.php');
+                        $m_admin = new M_admin();
+                        $manxb = $_GET['manxb'];
+                        $nxb = $m_admin->getNXBByID($manxb);
+                  
+                        
+                        ?>
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <form role="form" action="XuLyThemChuDe.php" method="post" >
+                                    <form role="form" action="XuLySuaNXB.php?manxb=<?=$nxb['MaNXB']?>" method="post" >
                                       
                                         <div class="form-group">
-                                           
-                                            <input name="tenchude" class="form-control" placeholder="Tên Chủ Đề">
+                                           <label>Tên nhà xuất bản</label>
+                                            <input name="tennxb" class="form-control" value="<?=$nxb['TenNXB']?>" >
+                                        </div>
+                                      <div class="form-group">
+                                           <label>Địa chỉ</label>
+                                            <input name="diachi" class="form-control" value="<?=$nxb['Diachi']?>" >
+                                        </div>
+                                      <div class="form-group">
+                                           <label>SĐT</label>
+                                            <input name="SDT" class="form-control" value="<?=$nxb['SDT']?>" >
                                         </div>
                                      
-                                    
-                                     
-                                        <button name="submit" type="submit" class="btn btn-default">Thêm</button>
+                                        <button name="submit" type="submit" class="btn btn-default">Sửa</button>
                                         
                                     </form>
                                 </div>

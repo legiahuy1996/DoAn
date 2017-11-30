@@ -376,7 +376,7 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Thêm Chủ đề</h1>
+                    <h1 class="page-header">Thêm NXB</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -385,16 +385,24 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Thông tin chủ đề
+                            Thông tin NXB
                         </div>
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <form role="form" action="XuLyThemChuDe.php" method="post" >
+                                    <form role="form" action="XuLyThemNXB.php" method="post" >
                                       
                                         <div class="form-group">
                                            
-                                            <input name="tenchude" class="form-control" placeholder="Tên Chủ Đề">
+                                            <input name="tennxb" class="form-control" placeholder="Tên NXB">
+                                        </div>
+                                           <div class="form-group">
+                                           
+                                            <input name="diachi" class="form-control" placeholder="Địa chỉ">
+                                        </div>
+                                            <div class="form-group">
+                                           
+                                            <input name="sdt" class="form-control" placeholder="Số điện thoại" maxlength="11">
                                         </div>
                                      
                                     
