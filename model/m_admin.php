@@ -11,6 +11,11 @@ class M_admin extends database{
 		return $this->get_list($sql);
 	}
 	
+	function getlisttacgia()
+	{
+		$sql = "SELECT * from tacgia";
+		return $this->get_list($sql);
+	}
 	function getlistnxb()
 	{
 		$sql = "SELECT * from nhaxuatban";
@@ -77,6 +82,16 @@ class M_admin extends database{
 	function xoanxb($ma)
 	{
 		$sql ="DELETE from nhaxuatban where MaNXB = $ma";
+		return $this->execute($sql);
+	}
+	function themtacgia($tentacgia,$diachi,$sdt,$tieusu)
+	{
+		$sql = "INSERT into tacgia values(NULL,N'$tentacgia',N'$diachi',N'$tieusu',$sdt)" ;
+		return $this->execute($sql);
+	}
+	function xoatacgia($ma)
+	{
+		$sql ="DELETE from tacgia where MaTacGia = $ma";
 		return $this->execute($sql);
 	}
 }
