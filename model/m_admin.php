@@ -106,4 +106,20 @@ class M_admin extends database{
 		$sql = "UPDATE tacgia set TenTG = N'$tentacgia', DiaChi = N'$diachi',TieuSu = N'$tieusu',DienThoai = '$dienthoai' where MaTacGia = $matacgia";
 		return $this->execute($sql);
 	}
+	function getlistkhachhang()
+	{
+		$sql="SELECT * from khachhang";
+		return $this->get_list($sql);
+
+	}
+	function DangKy($taikhoan,$matkhau,$email,$sdt,$diachi,$tenkhachhang,$ngaysinh,$gioitinh)
+	{
+		$sql = "INSERT into khachhang VALUES(NULL,N'$tenkhachhang','$ngaysinh','$gioitinh','$sdt','$taikhoan','$matkhau','$email',N'$diachi')";
+		$this->execute($sql);
+	}
+	function xoakhachhang($ma)
+	{
+		$sql ="DELETE from khachhang where MaKH = $ma";
+		return $this->execute($sql);
+	}
 }

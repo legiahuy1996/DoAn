@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -376,7 +379,7 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Thêm tác giả</h1>
+                    <h1 class="page-header">Thêm khách hàng</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -385,33 +388,82 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Thông tin tác giả
+                            Thông tin khách hàng
                         </div>
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <form role="form" action="XuLyThemTacgia.php" method="post" >
-                                      
-                                        <div class="form-group">
-                                           
-                                            <input name="tentacgia" class="form-control" placeholder="Tên tác giả">
-                                        </div>
-                                           <div class="form-group">
-                                           
-                                            <input name="diachi" class="form-control" placeholder="Địa chỉ">
-                                        </div>
-                                            <div class="form-group">
-                                           
-                                            <input type="text"  name="sdt" class="form-control" placeholder="Số điện thoại" maxlength="11">
-                                        </div>
-                                         <div class="form-group">
-                                            <label>Tiểu sử</label>
-                                            <textarea name="tieusu" class="form-control" rows="3"></textarea>
-                                        </div>
+                                    <form role="form" action="XuLyThemkhachhang.php" method="post" >
+                                      <div>
+                                         <?php
+                                if(isset($_SESSION['err']))
+                                {?>
+                                    <div class="alert alert-danger"><?=$_SESSION['err']?></div>
+
+
+                                    <?php
+                                    unset($_SESSION['err']);
+                                }
+                                ?>
+                                        <label>Tài khoản</label>
+                                <input type="text" maxlength="50" class="form-control" placeholder="Tài khoản" name="taikhoan" aria-describedby="basic-addon1" required>
+                            </div>
+                            <br>
+                             <div >
+                                
+                                <label>Họ và tên</label>
+                                <input type="text" maxlength="15" class="form-control" placeholder="Tên khách hàng" name="tenkhachhang" aria-describedby="basic-addon1" required>
+                            </div>
+                            
+                            <br>
+                            <div>
+                                <label>Email</label>
+                                <input type="email" maxlength="200" class="form-control" placeholder="Email" name="email" aria-describedby="basic-addon1" required 
+                                >
+                            </div>
+                            <br>    
+                            
+                            <div>
+                                <label>Nhập mật khẩu</label>
+                                <input type="password" maxlength="50" class="form-control" name="password" aria-describedby="basic-addon1" required>
+                            </div>
+                            <br>
+                            <div>
+                                <label>Nhập lại mật khẩu</label>
+                                <input type="password" maxlength="50" class="form-control" name="passwordAgain" aria-describedby="basic-addon1" required>
+                            </div>
+                            <br>
+                            <div>
+                                <label>Ngày sinh</label>
+                                <input type="date" maxlength="200" class="form-control"  name="ngaysinh" aria-describedby="basic-addon1" required 
+                                >
+                            </div>
+                            <br>    
+                            <div>
+                                <label>Giới tính</label>
+                            </br>
+                                <input type="radio"   name="gioitinh" id="nam" value="nam" 
+                                >Nam
+                                 <input type="radio"   name="gioitinh"  id="nu" value="nữ" 
+                                >Nữ
+                            </div>
+                            <br>    
+                            <div >
+                                
+                                <label>Số điện thoại</label>
+                                <input type="text" maxlength="11" class="form-control" name="sdt" aria-describedby="basic-addon1" required>
+                            </div>
+                            <br>
+                            <div >
+                                
+                                <label>Địa chỉ</label>
+                                <input type="text" maxlength="100" class="form-control"  name="diachi" aria-describedby="basic-addon1" required>
+                            </div>
+                            <br>
                                      
                                     
                                      
-                                        <button name="submit" type="submit" class="btn btn-default">Thêm</button>
+                                        <button name="submit123" type="submit" class="btn btn-default">Thêm</button>
                                         
                                     </form>
                                 </div>
