@@ -8,7 +8,7 @@ $diachi = $_POST['diachi'];
 $sdt = $_POST['sdt'];
 $tieusu=$_POST['tieusu'];
 
-$m_admin->themtacgia($tentacgia,$diachi,$sdt,$tieusu);
+$a= $m_admin->themtacgia($tentacgia,$diachi,$sdt,$tieusu);
 header('location:admin_tacgia.php');
 
 }

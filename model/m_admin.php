@@ -74,9 +74,11 @@ class M_admin extends database{
 		$sql = "UPDATE nhaxuatban set TenNXB = N'$ten', Diachi = N'$diachi',SDT = $SDT where MaNXB = $ma";
 		return $this->execute($sql);
 	}
-	function themsdt($tennxb,$diachi,$sdt)
+	function themnxb($tennxb,$diachi,$sdt)
 	{
+
 		$sql = "INSERT into nhaxuatban values(NULL,N'$tennxb',N'$diachi','$sdt')";
+		//$sql = "INSERT INTO nhaxuatban(TenNXB,Diachi,SDT) values(?,?,?) ";
 		return $this->execute($sql);
 	}
 	function xoanxb($ma)
@@ -84,14 +86,24 @@ class M_admin extends database{
 		$sql ="DELETE from nhaxuatban where MaNXB = $ma";
 		return $this->execute($sql);
 	}
+	function getTacgiaByID($ma)
+	{
+		$sql = "SELECT * from tacgia where MaTacGia = $ma";
+		return $this->get_row($sql);
+	}
 	function themtacgia($tentacgia,$diachi,$sdt,$tieusu)
 	{
-		$sql = "INSERT into tacgia values(NULL,N'$tentacgia',N'$diachi',N'$tieusu',$sdt)" ;
+		$sql = "INSERT into tacgia values(NULL,N'$tentacgia',N'$diachi',N'$tieusu','$sdt')" ;
 		return $this->execute($sql);
 	}
 	function xoatacgia($ma)
 	{
 		$sql ="DELETE from tacgia where MaTacGia = $ma";
+		return $this->execute($sql);
+	}
+	function suatacgia($matacgia,$tentacgia,$tieusu,$diachi,$dienthoai)
+	{
+		$sql = "UPDATE tacgia set TenTG = N'$tentacgia', DiaChi = N'$diachi',TieuSu = N'$tieusu',DienThoai = '$dienthoai' where MaTacGia = $matacgia";
 		return $this->execute($sql);
 	}
 }

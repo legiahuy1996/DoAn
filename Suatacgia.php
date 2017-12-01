@@ -376,7 +376,7 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Thêm NXB</h1>
+                    <h1 class="page-header">Sửa Tác Giả</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -385,29 +385,43 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Thông tin NXB
+                            Thông tin Tác Giả
                         </div>
+                        <?php
+                        include('model/m_admin.php');
+                        $m_admin = new M_admin();
+                        $matacgia = $_GET['matacgia'];
+                        $tacgia = $m_admin->getTacgiaByID($matacgia);
+                       
+                        
+                        ?>
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <form role="form" action="XuLyThemNXB.php" method="post" >
+                                    <form role="form" action="XuLySuatacgia.php?matacgia=<?=$tacgia['MaTacGia']?>" method="post" enctype="multipart/form-data">
                                       
                                         <div class="form-group">
-                                           
-                                            <input name="tennxb" class="form-control" placeholder="Tên NXB">
-                                        </div>
-                                           <div class="form-group">
-                                           
-                                            <input name="diachi" class="form-control" placeholder="Địa chỉ">
-                                        </div>
-                                            <div class="form-group">
-                                           
-                                            <input name="sdt" class="form-control" placeholder="Số điện thoại" maxlength="10" >
+                                           <label>Tên tác giả</label>
+                                            <input name="tentacgia" class="form-control" value="<?=$tacgia['TenTG']?>" placeholder="Tên sách">
                                         </div>
                                      
-                                    
+                                     <div class="form-group">
+                                           <label>Địa chỉ</label>
+                                            <input name="diachi" class="form-control" value="<?=$tacgia['DiaChi']?>" placeholder="Địa chỉ">
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label>Tiểu sử</label>
+                                            <textarea name="tieusu"  class="form-control" rows="3"><?=$tacgia['TieuSu']?></textarea>
+                                        </div>
+                                         <div class="form-group">
+                                           
+                                            <input name="sdt" type="number" class="form-control" value="<?=$tacgia['DienThoai']?>" placeholder="Số điện thoại" maxlength="10" >
+                                        </div>
+                                   
                                      
-                                        <button name="submit123" type="submit" class="btn btn-default">Thêm</button>
+                                     
+                                        <button name="submit" type="submit" class="btn btn-default">Sửa</button>
                                         
                                     </form>
                                 </div>
