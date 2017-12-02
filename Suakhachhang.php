@@ -1,6 +1,3 @@
-<?php
-session_start();
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -379,7 +376,7 @@ session_start();
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Thêm khách hàng</h1>
+                    <h1 class="page-header">Sửa Khách hàng</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -388,82 +385,66 @@ session_start();
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Thông tin khách hàng
+                            Thông tin Khách hàng
                         </div>
+                        <?php
+                        include('model/m_admin.php');
+                        $m_admin = new M_admin();
+                        $makhachhang = $_GET['makh'];
+                        $khachhang = $m_admin->getKHByID($makhachhang);
+                        
+                        ?>
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <form role="form" action="XuLyThemkhachhang.php" method="post" >
-                                      <div>
-                                         <?php
-                                if(isset($_SESSION['err']))
-                                {?>
-                                    <div class="alert alert-danger"><?=$_SESSION['err']?></div>
-
-
-                                    <?php
-                                    unset($_SESSION['err']);
-                                }
-                                ?>
-                                        <label>Tài khoản</label>
-                                <input type="text" maxlength="50" class="form-control" placeholder="Tài khoản" name="taikhoan" aria-describedby="basic-addon1" required>
-                            </div>
-                            <br>
-                             <div >
-                                
-                                <label>Họ và tên</label>
-                                <input type="text"   class="form-control" placeholder="Tên khách hàng" name="tenkhachhang" aria-describedby="basic-addon1" required>
-                            </div>
-                            
-                            <br>
-                            <div>
-                                <label>Email</label>
-                                <input type="email" maxlength="200" class="form-control" placeholder="Email" name="email" aria-describedby="basic-addon1" required 
-                                >
-                            </div>
-                            <br>    
-                            
-                            <div>
-                                <label>Nhập mật khẩu</label>
-                                <input type="password" maxlength="50" class="form-control" name="password" aria-describedby="basic-addon1" required>
-                            </div>
-                            <br>
-                            <div>
-                                <label>Nhập lại mật khẩu</label>
-                                <input type="password" maxlength="50" class="form-control" name="passwordAgain" aria-describedby="basic-addon1" required>
-                            </div>
-                            <br>
-                            <div>
-                                <label>Ngày sinh</label>
-                                <input type="date" maxlength="200" class="form-control"  name="ngaysinh" aria-describedby="basic-addon1" required 
-                                >
-                            </div>
-                            <br>    
-                            <div>
+                                    <form role="form" action="XuLySuakhachhang.php?makh=<?=$khachhang['MaKH']?>" method="post" enctype="multipart/form-data">
+                                      
+                                        <div class="form-group">
+                                           <label>Tên khách hàng</label>
+                                            <input name="tenkh" class="form-control" value="<?=$khachhang['TenKH']?>" >
+                                        </div>
+                                     
+                                     <div class="form-group">
+                                           <label>Địa chỉ</label>
+                                            <input name="diachi" class="form-control" value="<?=$khachhang['diachi']?>" >
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label>Ngày sinh</label>
+                                            <input type="date" name="ngaysinh"  class="form-control" rows="3" value="<?=$khachhang['NgaySinh']?>">
+                                        </div>
+                                         <div class="form-group">
+                                           <label>Số điện thoại</label>
+                                            <input name="sdt" type="number" class="form-control" value="<?=$khachhang['dienthoai']?>" placeholder="Số điện thoại" maxlength="10" >
+                                        </div>
+                                        <div class="form-group">
                                 <label>Giới tính</label>
-                            </br>
-                                <input type="radio"   name="gioitinh" id="nam" value="nam" 
+                            <?php
+                            if($khachhang['Gioitinh']==1)
+                            {
+                                ?>
+                                 <input type="radio"   name="gioitinh" id="nam" value="nam" checked="checked" 
                                 >Nam
                                  <input type="radio"   name="gioitinh"  id="nu" value="nữ" 
                                 >Nữ
+                                <?php
+                            }
+                            else
+                                {?>
+                                 <input type="radio"   name="gioitinh" id="nam" value="nam" 
+                            
+                                >Nam
+                                 <input type="radio"   name="gioitinh"  id="nu" value="nữ" checked="checked" 
+                                >Nữ
+                                <?php
+                            }
+                            ?>
+                               
                             </div>
-                            <br>    
-                            <div >
-                                
-                                <label>Số điện thoại</label>
-                                <input type="text" maxlength="11" class="form-control" name="sdt" aria-describedby="basic-addon1" required>
-                            </div>
-                            <br>
-                            <div >
-                                
-                                <label>Địa chỉ</label>
-                                <input type="text" maxlength="100" class="form-control"  name="diachi" aria-describedby="basic-addon1" required>
-                            </div>
-                            <br>
+                                   
                                      
-                                    
                                      
-                                        <button name="submit123" type="submit" class="btn btn-default">Thêm</button>
+                                        <button name="submit" type="submit" class="btn btn-default">Sửa</button>
                                         
                                     </form>
                                 </div>

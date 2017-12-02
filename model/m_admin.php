@@ -122,4 +122,14 @@ class M_admin extends database{
 		$sql ="DELETE from khachhang where MaKH = $ma";
 		return $this->execute($sql);
 	}
+	function getKHByID($ma)
+	{
+		$sql = "SELECT * from khachhang where MaKH = $ma";
+		return $this->get_row($sql);
+	}
+	function suakhachhang($makh,$tenkh,$diachi,$sdt,$gioitinh,$ngaysinh)
+	{
+		$sql = "UPDATE khachhang set TenKH = N'$tenkh', diachi = N'$diachi',NgaySinh = '$ngaysinh',dienthoai = '$sdt',Gioitinh ='$gioitinh' where MaKH = $makh";
+		return $this->execute($sql);
+	}
 }
