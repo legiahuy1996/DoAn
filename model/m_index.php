@@ -116,6 +116,6 @@ class M_index extends database{
 		$sql = "SELECT * from donhang where Madonhang = '$id' ";
 		return $this->get_row($sql);
 	}
-
+	
 
 }

@@ -132,4 +132,47 @@ class M_admin extends database{
 		$sql = "UPDATE khachhang set TenKH = N'$tenkh', diachi = N'$diachi',NgaySinh = '$ngaysinh',dienthoai = '$sdt',Gioitinh ='$gioitinh' where MaKH = $makh";
 		return $this->execute($sql);
 	}
+	function getlistdonhang()
+	{
+		$sql = "SELECT *from donhang";
+		return $this->get_list($sql);
+	}
+	function themdonhang($makhachhang,$ngaygiao,$ngaydat,$diachi)
+	{
+		$tinhtrang = 1;
+		$PhuongThuc ='Tiền mặt';
+		$sql = "INSERT into donhang values(NULL,$makhachhang,'$ngaygiao','$ngaydat',$tinhtrang,N'$diachi',N'$PhuongThuc')";
+		return $this->execute($sql);
+	}
+	function getmadonhang()
+	{
+		$sql ="SELECT max(madonhang) from donhang ORDER BY madonhang DESC";
+		return $this->get_row($sql);
+
+	}
+	function themchitietdonhang($madonhang,$masach,$soluong,$dongia)
+	{
+		$sql = "INSERT into chitietdonhang values(NULL,$madonhang,$masach,$soluong,$dongia)";
+		return $this->execute($sql);
+	}
+	function getlistchitietbyIDdonhang($ma)
+	{
+		$sql ="SELECT * from chitietdonhang where Madonhang = $ma";
+		return $this->get_list($sql);
+	}
+	function getchitietdonhangbyID($ma)
+	{
+		$sql ="SELECT * from chitietdonhang where MaChiTietDonHang = $ma";
+		return $this->get_row($sql);
+	}
+	function suachitiet($mact,$madonhang,$masach,$soluong,$dongia)
+	{
+		$sql = "UPDATE chitietdonhang set Madonhang = $madonhang,MaSach = $masach,Soluong = $soluong,Dongia = $dongia where MaChiTietDonHang = $mact";
+		return $this->execute($sql);
+	}
+	function xoachitiet($ma)
+	{
+		$sql ="DELETE from chitietdonhang where MaChiTietDonHang = $ma";
+		return $this->execute($sql);
+	}
 }
