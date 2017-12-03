@@ -175,4 +175,14 @@ class M_admin extends database{
 		$sql ="DELETE from chitietdonhang where MaChiTietDonHang = $ma";
 		return $this->execute($sql);
 	}
+	function getDonhangbyID($ma)
+	{
+		$sql = "SELECT * from donhang where Madonhang = $ma";
+		return $this->get_row($sql);
+	}
+	function suadonhang($madonhang,$makh,$ngaygiao,$diachi)
+	{
+		$sql = "UPDATE donhang set MaKH = $makh,NgayGiao = '$ngaygiao',DiaChi = N'$diachi' where Madonhang = $madonhang";
+		return $this->execute($sql);
+	}
 }
