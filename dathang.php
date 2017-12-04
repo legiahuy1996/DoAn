@@ -78,8 +78,9 @@ $listchitiet = $m_admin->getlistchitietbyIDdonhang($madonhang);
 	// unset($_SESSION['giohang']);
 	// unset($_SESSION['tongso']);
 	$emailLL = $ketqua['email'];
+	//var_dump($emailLL);
 	$mail = new PHPMailer();
-	$mail->SMTPDebug = 0;                                 // Enable verbose debug output
+	$mail->SMTPDebug = 4;                                 // Enable verbose debug output
 	$mail->IsSMTP();
 	$mail->Host = "smtp.gmail.com";  // Specify main and backup SMTP servers
 	$mail->SMTPAuth = true;                               // Enable SMTP authentication
@@ -87,7 +88,7 @@ $listchitiet = $m_admin->getlistchitietbyIDdonhang($madonhang);
 	
 	$mail->Username = 'kodcquennghen@gmail.com';                 // tai khoan dung de gui
 	$mail->Password = 'hembjet1';                             // mat khau của tai khoan dung de gui
-	                                            
+	                                         
 	$mail->SMTPSecure = "ssl";                          
 	//$mail->Port = 486;
 	$mail->Port = 465; 

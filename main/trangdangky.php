@@ -25,10 +25,11 @@ if($_POST['sex']=='nam')
 }
 else
 {
-	$_POST['sex']=2;
+	$_POST['sex']=0;
 }
 $gioitinh=$_POST['sex'];
 $aray[]=$gioitinh;
+// var_dump($aray); exit;
 $kiemtratrung = $c_index->getlistKhachHang();
 foreach ($kiemtratrung as $key => $value) {
 	if($value['taikhoan']==$username)
@@ -36,7 +37,7 @@ foreach ($kiemtratrung as $key => $value) {
 		$_SESSION['errormess']= "Tài khoản đã tồn tại!!";	
 	}
 	elseif($value['email']==$email)
-	{
+	{ 
 		$_SESSION['errormess']= "Email đã tồn tại!!";	
 	}	
 }

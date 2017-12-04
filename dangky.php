@@ -125,7 +125,7 @@ if(isset($_POST['DangKy']))
                 <div class="panel panel-default">
 				  	<div class="panel-heading">Đăng ký tài khoản</div>
 				  	<div class="panel-body">
-				    	<form method="post" action="xulydangky.php">
+				    	<form method="post" action="dangky.php" method="post">
 				    		<div id="taikhoan">
                                    <?php
                                 if(isset($_SESSION['errormess']))
@@ -173,7 +173,7 @@ if(isset($_POST['DangKy']))
                             <div>
                                 <label>Giới tính</label>
                             </br>
-                                <input type="radio"   name="sex" id="nam" value="name" 
+                                <input type="radio"   name="sex" id="nam" value="nam" 
                                 >Nam
                                  <input type="radio"   name="sex"  id="nu" value="nữ" 
                                 >Nữ
@@ -182,7 +182,7 @@ if(isset($_POST['DangKy']))
                             <div >
                                 
                                 <label>Số điện thoại</label>
-                                <input type="text" maxlength="15" class="form-control" name="phone" aria-describedby="basic-addon1" required>
+                                <input type="text" maxlength="11" class="form-control" name="phone" aria-describedby="basic-addon1" required>
                             </div>
                             <br>
                             <div >

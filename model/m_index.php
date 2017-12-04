@@ -88,7 +88,7 @@ class M_index extends database{
 	}
 	function DangKy($username,$password,$email,$phone,$address,$fullname,$birthday,$gioitinh)
 	{
-		$sql = "INSERT into khachhang VALUES('$username','$fullname','$birthday','$gioitinh','$phone','$username','$password','$email','$address')";
+		$sql = "INSERT into khachhang VALUES(NULL,N'$fullname','$birthday','$gioitinh','$phone','$username','$password','$email',N'$address')";
 		$this->execute($sql);
 	}
 	function getlistKhachHang()
