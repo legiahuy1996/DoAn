@@ -134,10 +134,10 @@ class C_index{
 		$result = $m_index->getKHByName($name);
 		return $result;
 	}
-	function dathang($MaKH,$diachi)
+	function dathang($MaKH,$diachi,$ngaydat,$ngaygiao)
 	{
 		$m_index = new M_index();
-		$result = $m_index->dathang($MaKH,$diachi);
+		$result = $m_index->dathang($MaKH,$diachi,$ngaydat,$ngaygiao);
 		return $result;
 	}
 	function getlistdonhang($id)

@@ -185,4 +185,11 @@ class M_admin extends database{
 		$sql = "UPDATE donhang set MaKH = $makh,NgayGiao = '$ngaygiao',DiaChi = N'$diachi' where Madonhang = $madonhang";
 		return $this->execute($sql);
 	}
+	function getKHByName($name)
+	{	
+		$sql= "SELECT * from khachhang where taikhoan ='$name'";
+		return $this->get_row($sql);
+
+	}
+	
 }

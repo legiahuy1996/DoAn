@@ -103,12 +103,11 @@ class M_index extends database{
 		return $this->get_row($sql);
 
 	}
-	function dathang($MaKH,$diachi)
+	function dathang($MaKH,$diachi,$ngaydat,$ngaygiao)
 	{
 
-		$day = getdate();
-		$ngay = $day['mday']."-".$day['mon']."-".$day['year'];
-		$sql = "INSERT into donhang VALUES('$MaKH','$MaKH',NULL,'$ngay',NULL,true,'$diachi',N'Tiền mặt')";
+		
+		$sql = "INSERT into donhang VALUES('$MaKH','$MaKH','$ngaygiao','$ngaydat',NULL,true,'$diachi',N'Tiền mặt')";
 		return $this->execute($sql);
 	}
 	function getlistdonhangbyID($id)
