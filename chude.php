@@ -69,19 +69,25 @@ include('main/trangchude.php');
                          <?php 
                      } ?>
                     </li>
-                    <li>
-                        <a>
+                     <li>
+                        <a href="taikhoan.php">
                             
                             <?php
                              if(isset($_SESSION['TenKH']))
                             {?>
-                                <span class ="glyphicon glyphicon-user"></span>
+                               <span class ="glyphicon glyphicon-user"></span>
                                 <?php
                                 echo $_SESSION['TenKH'];
 
 
                             } ?>
+
+
                         </a>
+                    </li>
+                    <li>
+                        <a  href="giohang.php" title="Bấm vào để xem giỏ hàng của bạn" data-placement="bottom"><i class="glyphicon glyphicon-shopping-cart"> </i>Giỏ Hàng  <span id="giohang"><?php if(isset($_SESSION['tongso']))
+                        echo "(".$_SESSION['tongso'].")"?></span></a>
                     </li>
 
                     <li>

@@ -115,6 +115,12 @@ class C_index{
 		$result = $m_index->DangNhap($username,md5($password));
 		return $result;
 	}
+	function suataikhoan($hoten,$matkhau,$makh,$email)
+	{
+		$m_index = new M_index();
+		$result = $m_index->suataikhoan($hoten,md5($matkhau),$makh,$email);
+		return $result;
+	}
 	function DangKy($username,$password,$email,$phone,$address,$fullname,$birthday,$gioitinh)
 	{
 		$m_index = new M_index();

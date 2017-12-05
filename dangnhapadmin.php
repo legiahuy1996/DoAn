@@ -44,67 +44,7 @@ if(isset($_POST['DangNhap']))
 <body>
 
     <!-- Navigation -->
-  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="index.php">Sách Online</a>
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                
-
-                <ul class="nav navbar-nav pull-right">
-                    <li>
-                        <a href="dangky.php">Đăng ký</a>
-                    </li>
-                    <li>
-                        <?php
-                             if(!isset($_SESSION['TenKH']))
-                            {?>
-                        <a href="dangnhap.php">Đăng nhập</a>
-                         <?php 
-                     } ?>
-                    </li>
-                    <li>
-                        <a>
-                            
-                            <?php
-                             if(isset($_SESSION['TenKH']))
-                            {?>
-                                <span class ="glyphicon glyphicon-user"></span>
-                                <?php
-                                echo $_SESSION['TenKH'];
-
-
-                            } ?>
-                        </a>
-                    </li>
-                    <li>
-    <a  href="giohang.php" title="Bấm vào để xem giỏ hàng của bạn" data-placement="bottom"><i class="glyphicon glyphicon-shopping-cart"> </i>Giỏ Hàng  <span id="giohang"><?php if(isset($_SESSION['tongso']))
-                        echo "(".$_SESSION['tongso'].")"?></span></a>
-</li>
-
-                    <li>
-                        <a href="dangxuat.php">Đăng xuất</a>
-                    </li>
-
-                </ul>
-            </div>
-
-
-
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container -->
-    </nav>
-
+ 
     <!-- Page Content -->
     <div class="container">
 

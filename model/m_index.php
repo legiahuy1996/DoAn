@@ -86,10 +86,16 @@ class M_index extends database{
 		$sql = "SELECT * from khachhang where taikhoan = '$username' && matkhau ='$password'";
 		return $this->get_row($sql);
 	}
+	function suataikhoan($hoten,$matkhau,$makh,$email)
+	{
+		$sql = "UPDATE khachhang set TenKH =N'$hoten',matkhau='$matkhau',email = '$email' where MaKH=$makh";
+		 $this->execute($sql);
+
+	}
 	function DangKy($username,$password,$email,$phone,$address,$fullname,$birthday,$gioitinh)
 	{
-		$sql = "INSERT into khachhang VALUES(NULL,N'$fullname','$birthday','$gioitinh','$phone','$username','$password','$email',N'$address')";
-		$this->execute($sql);
+		$sql = "INSERT into khachhang VALUES(NULL,N'$fullname','$birthday','$gioitinh','$phone','$username','$password','$email',N'$address','kh')";
+		 $this->execute($sql);
 	}
 	function getlistKhachHang()
 	{

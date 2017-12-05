@@ -102,17 +102,19 @@ if(isset($_SESSION['giohang']))
                      } ?>
                     </li>
                     <li>
-                    	<a>
+                    	<a href="taikhoan.php">
                     		
                     		<?php
                              if(isset($_SESSION['TenKH']))
                             {?>
-                                <span class ="glyphicon glyphicon-user"></span>
+                               <span class ="glyphicon glyphicon-user"></span>
                                 <?php
                                 echo $_SESSION['TenKH'];
 
 
                             } ?>
+
+
                     	</a>
                     </li>
                     <li>

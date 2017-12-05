@@ -1,4 +1,12 @@
-<!DOCTYPE html>
+<?php
+session_start();
+
+if($_SESSION['username']== null || $_SESSION['loai']=="kh")
+{
+    header('location:dangnhapadmin.php');
+}
+
+?><!DOCTYPE html>
 <html lang="en">
 
 <head>

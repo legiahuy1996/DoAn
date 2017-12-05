@@ -31,10 +31,17 @@
  		}
  		else
  		{
+ 			
  				$_SESSION['username'] = $username;
  				$_SESSION['password'] = $password;
  				$_SESSION['TenKH']=$ketqua['TenKH'];
- 				header("location:index.php");
+ 				$_SESSION['makh'] = $ketqua['MaKH'];
+ 				$_SESSION['loai']= $ketqua['loai'];
+ 				// var_dump($_SESSION['loai']); exit;
+ 				if($_SESSION['loai']=="kh")
+ 					header("location:index.php");
+ 				else
+ 					header('location:admin.php');
  		}
  		
  	}
