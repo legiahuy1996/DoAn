@@ -58,7 +58,7 @@ if(isset($_SESSION['giohang']))
 
     <?php if($_SESSION['ketqua']==true)
     {?> 
-        alert('Đăng ký thành công! Vui lòng đăng nhập để update thông tin của bạn!!');
+        alert('Đăng ký thành công! ');
 
         <?php
         unset($_SESSION['ketqua']);
@@ -85,21 +85,9 @@ if(isset($_SESSION['giohang']))
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li>
-                        <a href="gioithieu.html">Giới thiệu</a>
-                    </li>
-                    <li>
-                        <a href="lienhe.html">Liên hệ</a>
-                    </li>
-                </ul>
+               
 
-                <form class="navbar-form navbar-left" role="search">
-			        <div class="form-group">
-			          <input type="text" class="form-control" placeholder="Search">
-			        </div>
-			        <button type="submit" class="btn btn-default">Submit</button>
-			    </form>
+               
 
 			    <ul class="nav navbar-nav pull-right">
                     <li>

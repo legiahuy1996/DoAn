@@ -57,21 +57,9 @@ if(isset($_POST['DangKy']))
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li>
-                        <a href="gioithieu.html">Giới thiệu</a>
-                    </li>
-                    <li>
-                        <a href="lienhe.html">Liên hệ</a>
-                    </li>
-                </ul>
+                
 
-                <form class="navbar-form navbar-left" role="search">
-                    <div class="form-group">
-                      <input type="text" class="form-control" placeholder="Search">
-                    </div>
-                    <button type="submit" class="btn btn-default">Submit</button>
-                </form>
+              
 
                 <ul class="nav navbar-nav pull-right">
                     <li>
@@ -143,7 +131,7 @@ if(isset($_POST['DangKy']))
                              <div >
                                 
                                 <label>Họ và tên</label>
-                                <input type="text" maxlength="15" class="form-control" placeholder="fullname" name="fullname" aria-describedby="basic-addon1" required>
+                                <input type="text" maxlength="200" class="form-control" placeholder="fullname" name="fullname" aria-describedby="basic-addon1" required>
                             </div>
                             
 							<br>
