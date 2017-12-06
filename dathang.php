@@ -22,11 +22,7 @@ if(!isset($_SESSION['TenKH']))
 			<h2>Tạo tài khoản thành viên</h2>
 			</br>
 			<div style="font-size: 16px">
-			<span>Bạn chưa có tài khoản ? Hãy đăng ký thành viên để được các quyền lợi :</span>
-			
-			<p style="margin-left: 30px">• Đặt hàng nhanh chóng.</p>
-			<p style="margin-left: 30px">• Kiểm tra các đơn hàng cũ.</p>
-			<p style="margin-left: 30px">• Dễ dàng theo dõi tình trạng giao hàng. <button class="btn btn-primary">Đăng Ký Ngay!</button></p></div>
+			 <button class="btn btn-primary">Đăng Ký Ngay!</button></p></div>
 		</td></tr>	
 		
 
@@ -117,6 +113,7 @@ else
 	
 	if(!$mail->Send())
 	{
+	
 	echo "Mailer Error: " . $mail->ErrorInfo;
 	}
 	else

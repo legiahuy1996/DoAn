@@ -137,61 +137,173 @@ if(isset($_POST['DangKy']))
                                 }
                                 ?>
 				    			<label>Tài khoản</label>
-							  	<input type="text" maxlength="50" class="form-control" placeholder="Username" name="Username" aria-describedby="basic-addon1" required>
+                                <?php 
+                                if(isset($_POST['Username']))
+                                {
+                                    ?>
+                                    <input type="text" maxlength="50" class="form-control" placeholder="Username" name="Username" aria-describedby="basic-addon1" value="<?=$_POST['Username']?>" >
+                                    <?php
+                                }
+                                else
+                                {
+                                    ?>
+                                    <input type="text" maxlength="50" class="form-control" placeholder="Username" name="Username" aria-describedby="basic-addon1"  >
+                                    <?php
+                                }
+                                ?>
 							</div>
                             <br>
                              <div >
                                 
                                 <label>Họ và tên</label>
-                                <input type="text" maxlength="200" class="form-control" placeholder="fullname" name="fullname" aria-describedby="basic-addon1" required>
+                                <?php 
+                                if(isset($_POST['fullname']))
+                                {
+                                    ?>
+                                <input type="text"  id="fullname" maxlength="200" class="form-control" placeholder="fullname" id="fullname" name="fullname" aria-describedby="basic-addon1" value="<?=$_POST['fullname']?>"  >
+                                  <?php
+                                }
+                                else
+                                {
+                                    ?>
+                                      <input type="text"  id="fullname" maxlength="200" class="form-control" placeholder="fullname" id="fullname" name="fullname" aria-describedby="basic-addon1"   >
+                                          <?php
+                                }
+                                ?>
                             </div>
                             
 							<br>
 							<div>
 				    			<label>Email</label>
-							  	<input type="email" maxlength="200" class="form-control" placeholder="Email" name="email" aria-describedby="basic-addon1" required 
+                                  <?php 
+                                if(isset($_POST['email']))
+                                {
+                                    ?>
+							  	<input type="email" maxlength="200" class="form-control" placeholder="Email" name="email" aria-describedby="basic-addon1"   value="<?=$_POST['email']?>" 
 							  	>
+                                  <?php
+                                }
+                                else
+                                {
+                                    ?>
+                                    <input type="email" maxlength="200" class="form-control" placeholder="Email" name="email" aria-describedby="basic-addon1" 
+                                >
+                                        <?php
+                                }
+                                ?>
 							</div>
 							<br>	
                             
 							<div>
 				    			<label>Nhập mật khẩu</label>
-							  	<input type="password" maxlength="50" class="form-control" name="password" aria-describedby="basic-addon1" required>
+							  	<input type="password" maxlength="50" class="form-control" name="password" aria-describedby="basic-addon1"  >
 							</div>
 							<br>
 							<div>
 				    			<label>Nhập lại mật khẩu</label>
-							  	<input type="password" maxlength="50" class="form-control" name="passwordAgain" aria-describedby="basic-addon1" required>
+							  	<input type="password" maxlength="50" class="form-control" name="passwordAgain" aria-describedby="basic-addon1"  >
 							</div>
 							<br>
                             <div>
                                 <label>Ngày sinh</label>
-                                <input type="date" maxlength="200" class="form-control"  name="birthdate" aria-describedby="basic-addon1" required 
+                                  <?php 
+                                if(isset($_POST['birthdate']))
+                                {
+                                    ?>
+                                <input type="date" maxlength="200" class="form-control"  name="birthdate" aria-describedby="basic-addon1"   value="<?=$_POST['birthdate']?>" 
                                 >
+                                  <?php
+                                }
+                                else
+                                {
+                                    ?>
+                                    <input type="date" maxlength="200" class="form-control"  name="birthdate" aria-describedby="basic-addon1"   
+                                >
+                                       <?php
+                                }
+                                ?>
                             </div>
                             <br>    
                             <div>
                                 <label>Giới tính</label>
                             </br>
-                                <input type="radio"   name="sex" id="nam" value="nam" 
-                                >Nam
-                                 <input type="radio"   name="sex"  id="nu" value="nữ" 
-                                >Nữ
+                            <?php
+                            if(isset($_POST['sex']))
+                            {
+                                if($_POST['sex']==1)
+                                {   ?>
+                                    <input type="radio"   name="sex" id="nam" value="nam" checked="checked" 
+                                    >Nam
+                                    <input type="radio"   name="sex"  id="nu" value="nữ" 
+                                    >Nữ
+                                    <?php
+                                }
+                                else
+                                {
+                                    ?>
+                                      <input type="radio"   name="sex" id="nam" value="nam"
+                                    >Nam
+                                    <input type="radio"   name="sex"  id="nu" value="nữ"  checked="checked" 
+                                    >Nữ
+                                    <?php
+                                }
+                            }
+                            else
+                            {
+                                ?>
+                                <input type="radio"   name="sex" id="nam" value="nam" checked="checked" 
+                                    >Nam
+                                    <input type="radio"   name="sex"  id="nu" value="nữ" 
+                                    >Nữ
+                                    <?php
+                            }
+
+
+                        ?>
+                               
                             </div>
                             <br>    
                             <div >
                                 
                                 <label>Số điện thoại</label>
-                                <input type="text" maxlength="11" class="form-control" name="phone" aria-describedby="basic-addon1" required>
+                                <?php 
+                                if(isset($_POST['phone']))
+                                {
+                                    ?>
+                                <input type="number" maxlength="11" class="form-control" name="phone" aria-describedby="basic-addon1" value="<?=$_POST['phone']?>"  >
+                                  <?php
+                                }
+                                else
+                                {
+                                    ?>
+                                    <input type="number" maxlength="11" class="form-control" name="phone" aria-describedby="basic-addon1"   >
+                                       <?php
+                                }
+                                ?>
+                               
                             </div>
                             <br>
                             <div >
                                 
                                 <label>Địa chỉ</label>
-                                <input type="text" maxlength="100" class="form-control"  name="address" aria-describedby="basic-addon1" required>
+                                 <?php 
+                                if(isset($_POST['address']))
+                                {
+                                    ?>
+                                <input type="text" maxlength="100" class="form-control"  name="address" aria-describedby="basic-addon1"  value="<?=$_POST['address']?>">
+                                  <?php
+                                }
+                                else
+                                {
+                                    ?>
+                                   <input type="text" maxlength="100" class="form-control"  name="address" aria-describedby="basic-addon1"  >
+                                       <?php
+                                }
+                                ?>
+                               
                             </div>
                             <br>
-							<button type="submit" name="DangKy" class="btn btn-success">Đăng ký
+							<button type="submit" name="DangKy" onclick="validate()" class="btn btn-success">Đăng ký
 							</button>
 
 				    	</form>

@@ -31,6 +31,14 @@ $gioitinh=$_POST['sex'];
 $aray[]=$gioitinh;
 // var_dump($aray); exit;
 $kiemtratrung = $c_index->getlistKhachHang();
+$checkfullname =str_replace(" ","", $fullname);
+$checkusername =str_replace(" ","", $username);
+$checkpassword = str_replace(" ","", $password);
+$checksdt =str_replace(" ","", $phone);
+$checkdiachi =str_replace(" ","", $address);
+$checkemail =str_replace(" ","", $email);
+
+
 foreach ($kiemtratrung as $key => $value) {
 	if($value['taikhoan']==$username)
 	{
@@ -41,43 +49,65 @@ foreach ($kiemtratrung as $key => $value) {
 		$_SESSION['errormess']= "Email đã tồn tại!!";	
 	}	
 }
-if($username == '' && $password == '')
+if(strlen($checkusername)<=0)
  {
 
- 	$_SESSION['errormess']= "Vui lòng nhập đầy đủ tài khoản và mật khẩu!!";
+ 	$_SESSION['errormess']= "Chưa nhập tài khoản";
  	
  }
- if($password != $repassword)
+ else if(strlen($checkpassword)<=0)
+ {
+ 	$_SESSION['errormess']= "Chưa nhập mật khẩu";
+ }
+ else if(strlen($checkfullname)<=0)
+ {
+
+ 	$_SESSION['errormess'] = "Chưa nhập họ tên!!";
+ }
+
+ else if($password != $repassword)
  {
  	$_SESSION['errormess'] = "nhập lại mật khẩu không chính xác!!";
  }
- if($email== '')
+ else if(strlen($checkemail)<=0)
  {
  	$_SESSION['errormess'] = "Vui lòng nhập email!!";
  }
- if($ngaysinh== '')
+ else if($ngaysinh== '')
  {
  	$_SESSION['errormess'] = "Vui lòng nhập ngày sinh!!";
  }
- if($address== '')
+ else if(strlen($checksdt)<=0 )
  {
  	$_SESSION['errormess'] = "Vui lòng nhập địa chỉ!!";
  }
-if($phone== '')
- {
+else if(strlen($checksdt<= 0))
+{
  	$_SESSION['errormess'] = "Vui lòng nhập số điện thoại!!";
- }
+}
+
  else
  {
+ 	$c = getdate();
 
- 	var_dump($aray);
- 	$ketqua = $c_index->DangKy($username,$password,$email,$phone,$address,$fullname,$ngaysinh,$gioitinh);
- 	if(isset($_SESSION['errormess']))
- 	{
- 		unset($_SESSION['errormess']);
+	$ngayhientai = $c['year'].'-'.$c['mon'].'-'.$c['mday'];
+	$presentday = strtotime($ngayhientai);
+	$birthday = strtotime($ngaysinh);
+// var_dump($presentday - $birthday); exit;
+	if($presentday - $birthday <567648000)
+	{
+		$_SESSION['errormess']="Bạn phải lớn hơn 18 tuổi để có thể tham gia mua hàng tại muasach.tk";
+	} 	// var_dump($aray);
+	else{
+		$ketqua = $c_index->DangKy($username,$password,$email,$phone,$address,$fullname,$ngaysinh,$gioitinh);
+		if(isset($_SESSION['errormess']))
+		{
+			unset($_SESSION['errormess']);
 
 
- 	}
+		}
+	}
+ 	
  	
  	header('location:index.php');
  	$_SESSION['ketqua'] = true;
