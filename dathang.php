@@ -83,30 +83,31 @@ else
 	$mail->Username = "kodcquennghen@gmail.com";        // SMTP username
 	$mail->Password = "hembjet1";               // SMTP password
 	//$webmaster_email = "kodcquennghen@gmail.com";       //Reply to this email ID
-	$email=$emailLL;                // Recipients email ID
+	$email=$emailLL;
+		             // Recipients email ID
 	$name=$ketqua['TenKH'];                              // Recipient's name
 	//$mail->From = $webmaster_email;
 	$mail->Port = 465;
 	$mail->SMTPDebug = 4 ;
 	$mail->SMTPSecure = 'ssl';
 	//$mail->FromName = "Web bán sách";
-	$mail->AddAddress('kodcquennghen@gmail.com',$name);
-	$mail->setFrom('lehuy.sn96@gmail.com','Company');
-	$mail->AddReplyTo('lehuy.sn96@gmail.com',"Web bán sách");
+	$mail->AddAddress($email,$name);
+	$mail->setFrom('kodcquennghen@gmail.com','Company');
+	$mail->AddReplyTo('kodcquennghen@gmail.com',"Web bán sách");
 	$mail->WordWrap = 50;                         // set word wrap
 	$mail->IsHTML(true);                          // send as HTML
 	$body ="";
 	$body.= "<div>Thông tin đơn hàng của bạn là :</div><br>" ; 
 	$body.="Mã đơn hàng: <br>  ";  // body la noi dbplus_undo(relation)ng 
-	//$tongtien =0;
-	// foreach ($listchitiet as $key => $value) 
-	// {
-	// 	$sach = $m_admin->getsachbyID($value['MaSach']);
-	// 	$body.="Tên sách:". $sach['TenSach']."<br>Số lượng: ".$value['Soluong']."<br>Đơn giá:". $value['Dongia']."<br>";
-	// 	$tongtien+= $value['Dongia'];
+	$tongtien =0;
+	foreach ($listchitiet as $key => $value) 
+	{
+		$sach = $m_admin->getsachbyID($value['MaSach']);
+		$body.="Tên sách:". $sach['TenSach']."<br>Số lượng: ".$value['Soluong']."<br>Đơn giá:". $value['Dongia']."<br>";
+		$tongtien+= $value['Dongia'];
 
-	// }
-	// $body.="Thành tiền : ".$tongtien;
+	}
+	$body.="Thành tiền : ".$tongtien;
 	$mail->Subject = "subject";
 	$mail->Body =$body;                  //HTML Body 
 	$mail->AltBody = "This is the body when user views in plain text format"; //Text Body 
