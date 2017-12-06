@@ -57,42 +57,55 @@ include('main/trangchude.php');
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               
 
-                <ul class="nav navbar-nav pull-right">
+               <ul class="nav navbar-nav pull-right">
+                   
+                  <?php
+                  if(isset($_SESSION['TenKH']))
+                    {?>
+
                     <li>
-                        <a href="dangky.php">Đăng ký</a>
-                    </li>
-                    <li>
-                        <?php
-                             if(!isset($_SESSION['TenKH']))
-                            {?>
-                        <a href="dangnhap.php">Đăng nhập</a>
-                         <?php 
-                     } ?>
-                    </li>
-                     <li>
                         <a href="taikhoan.php">
-                            
-                            <?php
-                             if(isset($_SESSION['TenKH']))
-                            {?>
-                               <span class ="glyphicon glyphicon-user"></span>
-                                <?php
-                                echo $_SESSION['TenKH'];
 
 
-                            } ?>
+                           <span class ="glyphicon glyphicon-user"></span>
+                           <?php
+                           echo $_SESSION['TenKH'];
 
 
-                        </a>
-                    </li>
+                           ?>
+
+                       </a>
+                   </li>
                     <li>
                         <a  href="giohang.php" title="Bấm vào để xem giỏ hàng của bạn" data-placement="bottom"><i class="glyphicon glyphicon-shopping-cart"> </i>Giỏ Hàng  <span id="giohang"><?php if(isset($_SESSION['tongso']))
                         echo "(".$_SESSION['tongso'].")"?></span></a>
-                    </li>
+</li>
 
                     <li>
                         <a href="dangxuat.php">Đăng xuất</a>
                     </li>
+
+                   <?php
+               }
+               else 
+                   { ?>
+                     <li>
+                        <a href="dangky.php">Đăng ký</a>
+                    </li>
+                    <li><a href="dangnhap.php">Đăng nhập</a></li>
+                    <li>
+                        <a  href="giohang.php" title="Bấm vào để xem giỏ hàng của bạn" data-placement="bottom"><i class="glyphicon glyphicon-shopping-cart"> </i>Giỏ Hàng  <span id="giohang"><?php if(isset($_SESSION['tongso']))
+                        echo "(".$_SESSION['tongso'].")"?></span></a>
+</li>
+
+                    <li>
+                        <a href="dangxuat.php">Đăng xuất</a>
+                    </li>
+                        <?php
+                    }
+                        ?>
+
+    
 
                 </ul>
             </div>

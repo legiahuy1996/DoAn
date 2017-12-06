@@ -37,7 +37,11 @@ $checkpassword = str_replace(" ","", $password);
 $checksdt =str_replace(" ","", $phone);
 $checkdiachi =str_replace(" ","", $address);
 $checkemail =str_replace(" ","", $email);
+$c = getdate();
 
+	$ngayhientai = $c['year'].'-'.$c['mon'].'-'.$c['mday'];
+	$presentday = strtotime($ngayhientai);
+	$birthday = strtotime($ngaysinh);
 
 foreach ($kiemtratrung as $key => $value) {
 	if($value['taikhoan']==$username)
@@ -85,20 +89,17 @@ else if(strlen($checksdt<= 0))
 {
  	$_SESSION['errormess'] = "Vui lòng nhập số điện thoại!!";
 }
-
- else
- {
- 	$c = getdate();
-
-	$ngayhientai = $c['year'].'-'.$c['mon'].'-'.$c['mday'];
-	$presentday = strtotime($ngayhientai);
-	$birthday = strtotime($ngaysinh);
+else if($presentday - $birthday <567648000)
+{
+	$_SESSION['errormess']="Bạn phải lớn hơn 18 tuổi để có thể tham gia mua hàng tại muasach.tk";
+}
+else
+{
+	
 // var_dump($presentday - $birthday); exit;
-	if($presentday - $birthday <567648000)
-	{
-		$_SESSION['errormess']="Bạn phải lớn hơn 18 tuổi để có thể tham gia mua hàng tại muasach.tk";
-	} 	// var_dump($aray);
-	else{
+	 	// var_dump($aray);
+	
+	
 		$ketqua = $c_index->DangKy($username,$password,$email,$phone,$address,$fullname,$ngaysinh,$gioitinh);
 		if(isset($_SESSION['errormess']))
 		{
@@ -106,11 +107,11 @@ else if(strlen($checksdt<= 0))
 
 
 		}
-	}
- 	
- 	
- 	header('location:index.php');
- 	$_SESSION['ketqua'] = true;
- }
+	
+
+
+	header('location:index.php');
+	$_SESSION['ketqua'] = true;
+}
 
 ?>

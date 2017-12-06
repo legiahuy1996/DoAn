@@ -27,10 +27,29 @@ if(isset($_POST['submit']))
     $email = $_POST['email'];
     if($matkhau == $nhaplai)
     {
-        $a =$c_index->suataikhoan($hoten,$matkhau,$makh,$email);
+        $checkfullname =str_replace(" ","", $hoten);
+        $checkemail =str_replace(" ","", $email);
+        if(strlen($checkfullname)==0)
+        {
+            $_SESSION['error'] = "Không được để trống họ tên!!";
+        }
+        else if(strlen($checkemail)==0)
+        {
+            $_SESSION['error'] = "Không được để trống email!!";
+        }
+        else
+        {
+             $a =$c_index->suataikhoan($hoten,$matkhau,$makh,$email);
         // var_dump($hoten,$matkhau,$makh,$email); exit;
         $_SESSION['ketquataikhoan']= true;
+            if(isset( $_SESSION['error'])) unset( $_SESSION['error']);
+        }
+       
 
+    }
+    else
+    {
+        $_SESSION['error'] = "Nhập lại mật khẩu không đúng!!";
     }
 }
 ?>
@@ -105,44 +124,57 @@ if(isset($_POST['submit']))
 
                
 
-                <ul class="nav navbar-nav pull-right">
+               
+                 <ul class="nav navbar-nav pull-right">
+                   
+                  <?php
+                  if(isset($_SESSION['TenKH']))
+                    {?>
+
                     <li>
-                        <a href="dangky.php">Đăng ký</a>
-                    </li>
-                    <li>
-                        <?php
-                             if(!isset($_SESSION['TenKH']))
-                            {?>
-                        <a href="dangnhap.php">Đăng nhập</a>
-                         <?php 
-                     } ?>
-                    </li>
-                    <li>
-                        <a>
-                            
-                            <?php
-                             if(isset($_SESSION['TenKH']))
-                            {?>
-                                <span class ="glyphicon glyphicon-user"></span>
-                                <?php
-                                echo $_SESSION['TenKH'];
+                        <a href="taikhoan.php">
 
 
-                            } ?>
-                        </a>
-                    </li>
+                           <span class ="glyphicon glyphicon-user"></span>
+                           <?php
+                           echo $_SESSION['TenKH'];
+
+
+                           ?>
+
+                       </a>
+                   </li>
                     <li>
-                    <a  href="giohang.php" title="Bấm vào để xem giỏ hàng của bạn" data-placement="bottom"><i class="glyphicon glyphicon-shopping-cart"> </i>Giỏ Hàng  <span id="giohang"><?php if(isset($_SESSION['tongso']))
+                        <a  href="giohang.php" title="Bấm vào để xem giỏ hàng của bạn" data-placement="bottom"><i class="glyphicon glyphicon-shopping-cart"> </i>Giỏ Hàng  <span id="giohang"><?php if(isset($_SESSION['tongso']))
                         echo "(".$_SESSION['tongso'].")"?></span></a>
-                        
-                    </li>
+</li>
+
                     <li>
                         <a href="dangxuat.php">Đăng xuất</a>
                     </li>
 
-                </li>
+                   <?php
+               }
+               else 
+                   { ?>
+                     <li>
+                        <a href="dangky.php">Đăng ký</a>
+                    </li>
+                    <li><a href="dangnhap.php">Đăng nhập</a></li>
+                    <li>
+                        <a  href="giohang.php" title="Bấm vào để xem giỏ hàng của bạn" data-placement="bottom"><i class="glyphicon glyphicon-shopping-cart"> </i>Giỏ Hàng  <span id="giohang"><?php if(isset($_SESSION['tongso']))
+                        echo "(".$_SESSION['tongso'].")"?></span></a>
+</li>
 
-                </ul>
+                    <li>
+                        <a href="dangxuat.php">Đăng xuất</a>
+                    </li>
+                        <?php
+                    }
+                        ?>
+
+    
+
             </div>
 
 
@@ -169,6 +201,14 @@ if(isset($_POST['submit']))
                         ?>
 				    	<form action="taikhoan.php?makh=<?=$_SESSION['makh']?>" method="post">
 				    		<div>
+                                <?php 
+                                if(isset($_SESSION['error']))
+                                {
+                                 ?>
+                                 <div class="alert alert-danger"><?=$_SESSION['error']?></div>
+                                 <?php
+                                }
+                                ?>
 				    			<label>Họ tên</label>
 							  	<input type="text" class="form-control"  name="hoten" value="<?=$kh['TenKH']?>" aria-describedby="basic-addon1">
 							</div>

@@ -73,38 +73,55 @@ if(isset($_SESSION['giohang']))
 
                 
 
-                <ul class="nav navbar-nav pull-right">
+            <ul class="nav navbar-nav pull-right">
+                   
+                  <?php
+                  if(isset($_SESSION['TenKH']))
+                    {?>
+
                     <li>
-                        <a href="dangky.php">Đăng ký</a>
-                    </li>
-                    <li>
-                        <?php
-                             if(!isset($_SESSION['TenKH']))
-                            {?>
-                        <a href="dangnhap.php">Đăng nhập</a>
-                         <?php 
-                     } ?>
-                    </li>
-                     <li>
                         <a href="taikhoan.php">
-                            
-                            <?php
-                             if(isset($_SESSION['TenKH']))
-                            {?>
-                               <span class ="glyphicon glyphicon-user"></span>
-                                <?php
-                                echo $_SESSION['TenKH'];
 
 
-                            } ?>
+                           <span class ="glyphicon glyphicon-user"></span>
+                           <?php
+                           echo $_SESSION['TenKH'];
 
 
-                        </a>
-                    </li>
+                           ?>
+
+                       </a>
+                   </li>
+                    <li>
+                        <a  href="giohang.php" title="Bấm vào để xem giỏ hàng của bạn" data-placement="bottom"><i class="glyphicon glyphicon-shopping-cart"> </i>Giỏ Hàng  <span id="giohang"><?php if(isset($_SESSION['tongso']))
+                        echo "(".$_SESSION['tongso'].")"?></span></a>
+</li>
 
                     <li>
                         <a href="dangxuat.php">Đăng xuất</a>
                     </li>
+
+                   <?php
+               }
+               else 
+                   { ?>
+                     <li>
+                        <a href="dangky.php">Đăng ký</a>
+                    </li>
+                    <li><a href="dangnhap.php">Đăng nhập</a></li>
+                    <li>
+                        <a  href="giohang.php" title="Bấm vào để xem giỏ hàng của bạn" data-placement="bottom"><i class="glyphicon glyphicon-shopping-cart"> </i>Giỏ Hàng  <span id="giohang"><?php if(isset($_SESSION['tongso']))
+                        echo "(".$_SESSION['tongso'].")"?></span></a>
+</li>
+
+                    <li>
+                        <a href="dangxuat.php">Đăng xuất</a>
+                    </li>
+                        <?php
+                    }
+                        ?>
+
+    
 
                 </ul>
             </div>
@@ -264,8 +281,8 @@ if(isset($_SESSION['giohang']))
              <td><input type="number" id="<?=$value['masach']?>"   name="soluong" min="0" max="100" align="center" value="<?=$value['soluong']?>"></td>
 
              <td><?=number_format($value['thanhtien'])?> VNĐ</td>
-             <td><a href="xoagiohang.php?masach=<?=$_SESSION['giohang'][$value['masach']]['masach']?>" ><button>Xoá</button>
-             </a> <button onclick="soluong(<?=$value['masach']?>,<?=$value['Giaban']?>)">Sua</button>
+             <td><a href="xoagiohang.php?masach=<?=$_SESSION['giohang'][$value['masach']]['masach']?>"  ><button class="btn btn-danger">Xoá</button>
+             </a> <button class="btn btn-warning" onclick="soluong(<?=$value['masach']?>,<?=$value['Giaban']?>)">Sửa</button>
              </td>
 
          </tr>
@@ -285,7 +302,7 @@ if(isset($_SESSION['giohang']))
    </tr>
    <tr>
     <td colspan="6" style="text-align:right;color:blue">
-      <button id="btndathang" onclick="dathang()" type="submit"> Đặt hàng</button>
+      <button id="btndathang" onclick="dathang()" class="btn btn-success" type="submit"> Đặt hàng</button>
 
       <script type="text/javascript">
         function soluong(id,giaban)

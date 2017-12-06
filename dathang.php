@@ -43,7 +43,7 @@ gioHang {
 }
 else
 {
-
+	
 	$ketqua = $m_admin->getKHByName($_SESSION['username']);
 		$c = getdate();
 
@@ -80,20 +80,20 @@ else
 	$mail->IsSMTP();                              // send via SMTP
 	$mail->Host = "ssl://smtp.gmail.com"; 
 	$mail->SMTPAuth = true;                       // turn on SMTP authentication
-	$mail->Username = "kodcquennghen@gmail.com";        // SMTP username
-	$mail->Password = "hembjet1";               // SMTP password
+	$mail->Username = "happybookstore180@gmail.com";        // SMTP username
+	$mail->Password = "Smile123";               // SMTP password
 	//$webmaster_email = "kodcquennghen@gmail.com";       //Reply to this email ID
 	$email=$emailLL;
 		             // Recipients email ID
 	$name=$ketqua['TenKH'];                              // Recipient's name
 	//$mail->From = $webmaster_email;
 	$mail->Port = 465;
-	$mail->SMTPDebug = 4 ;
+	$mail->SMTPDebug = 0 ;
 	$mail->SMTPSecure = 'ssl';
 	//$mail->FromName = "Web bán sách";
 	$mail->AddAddress($email,$name);
-	$mail->setFrom('kodcquennghen@gmail.com','Company');
-	$mail->AddReplyTo('kodcquennghen@gmail.com',"Web bán sách");
+	$mail->setFrom('happybookstore180@gmail.com','muasach.tk');
+	$mail->AddReplyTo('happybookstore180@gmail.com',"muasach.tk");
 	$mail->WordWrap = 50;                         // set word wrap
 	$mail->IsHTML(true);                          // send as HTML
 	$body ="";
@@ -119,7 +119,7 @@ else
 	}
 	else
 	{
-	echo "Message has been sent";
+	echo '<div class="alert alert-success">Chi tiết đơn hàng đã được gửi qua email của bạn</div>';
 	}
 }
 ?>
