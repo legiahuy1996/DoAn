@@ -92,10 +92,7 @@ if(isset($_SESSION['giohang']))
 
                        </a>
                    </li>
-                    <li>
-                        <a  href="giohang.php" title="Bấm vào để xem giỏ hàng của bạn" data-placement="bottom"><i class="glyphicon glyphicon-shopping-cart"> </i>Giỏ Hàng  <span id="giohang"><?php if(isset($_SESSION['tongso']))
-                        echo "(".$_SESSION['tongso'].")"?></span></a>
-</li>
+                    
 
                     <li>
                         <a href="dangxuat.php">Đăng xuất</a>
@@ -109,12 +106,7 @@ if(isset($_SESSION['giohang']))
                         <a href="dangky.php">Đăng ký</a>
                     </li>
                     <li><a href="dangnhap.php">Đăng nhập</a></li>
-                    <li>
-                        <a  href="giohang.php" title="Bấm vào để xem giỏ hàng của bạn" data-placement="bottom"><i class="glyphicon glyphicon-shopping-cart"> </i>Giỏ Hàng  <span id="giohang"><?php if(isset($_SESSION['tongso']))
-                        echo "(".$_SESSION['tongso'].")"?></span></a>
-</li>
-
-                    <li>
+                    
                         <a href="dangxuat.php">Đăng xuất</a>
                     </li>
                         <?php
@@ -341,7 +333,7 @@ else
    
     ?>
 
-   <h2> Chưa có sách nào trong giỏ hàng của bạn . Click vào <a href="index.php"> đây </a> để quay lại</h2>
+   <a href="index.php"><h2 class="alert alert-warning"> Chưa có sách nào trong giỏ hàng của bạn . <br>  Click vào  đây  để quay lại</h2></a>
     <?php
 }
 
