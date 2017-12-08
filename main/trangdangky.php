@@ -89,10 +89,10 @@ else if(strlen($checksdt<= 0))
 {
  	$_SESSION['errormess'] = "Vui lòng nhập số điện thoại!!";
 }
-else if($presentday - $birthday <567648000)
-{
-	$_SESSION['errormess']="Bạn phải lớn hơn 18 tuổi để có thể tham gia mua hàng tại muasach.tk";
-}
+// else if($presentday - $birthday <567648000)
+// {
+// 	$_SESSION['errormess']="Bạn phải lớn hơn 18 tuổi để có thể tham gia mua hàng tại muasach.tk";
+// }
 else
 {
 	
@@ -101,17 +101,32 @@ else
 	
 	
 		$ketqua = $c_index->DangKy($username,$password,$email,$phone,$address,$fullname,$ngaysinh,$gioitinh);
-		if(isset($_SESSION['errormess']))
+		if($ketqua)
 		{
-			unset($_SESSION['errormess']);
+			if(isset($_SESSION['errormess']))
+			{
+				unset($_SESSION['errormess']);
 
+
+			}
+
+
+
+			header('location:index.php');
+			$_SESSION['ketqua'] = true;
+		}
+		else
+		{
+
+			if(isset($_SESSION['errormess']))
+			{
+				
+				$_SESSION['errormess'] = "Email khong hop le!!";
+
+			}
 
 		}
-	
-
-
-	header('location:index.php');
-	$_SESSION['ketqua'] = true;
+		
 }
 
 ?>

@@ -15,8 +15,7 @@ class database {
 
     }
      
-    // Hàm Ngắt Kết Nối
-    function dis_connect(){
+   function dis_connect(){
       // Nếu đang kết nối thì ngắt
         if ($this->__conn){
             mysqli_close($this->__conn);
@@ -52,7 +51,12 @@ class database {
      {
         $this->connect();
         
-         mysqli_query($this->__conn, $sql);
+        $kq = mysqli_query($this->__conn, $sql);
+        if($kq)
+        {
+            return true;
+        }
+        return false;
      }
     // Hàm lấy 1 record dùng trong trường hợp lấy chi tiết tin
     function get_row($sql){

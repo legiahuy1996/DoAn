@@ -52,7 +52,12 @@ class database {
      {
         $this->connect();
         
-         mysqli_query($this->__conn, $sql);
+        $kq = mysqli_query($this->__conn, $sql);
+        if($kq)
+        {
+            return true;
+        }
+        return false;
      }
     // Hàm lấy 1 record dùng trong trường hợp lấy chi tiết tin
     function get_row($sql){
