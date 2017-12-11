@@ -196,5 +196,11 @@ class M_admin extends database{
 		return $this->get_row($sql);
 
 	}
+	function getsachbyNXB($ma)
+	{
+		$sql = "SELECT * from sach where MaNXB = $ma";
+		return $this->get_list($sql);
+	}
+
 	
 }

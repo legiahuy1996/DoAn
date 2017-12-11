@@ -311,6 +311,25 @@ if($_SESSION['username']== null || $_SESSION['loai']=="kh")
             <div class="row">
                 <div class="col-lg-12">
                   <h1 class="page-header">Trang quản trị</h1>
+                  <?php
+                  if(isset($_SESSION['errormess']))
+                  {
+                    ?>
+
+                        <div class="alert alert-danger"><?=$_SESSION['errormess']?></div>
+
+                    <?php
+                    unset($_SESSION['errormess']);
+                  }
+                  else if(isset($_SESSION['success'])) {
+                      ?>
+
+                       <div class="alert alert-success"><?=$_SESSION['success']?></div>
+
+                      <?php
+                      unset($_SESSION['success']);
+                   } 
+                  ?>
                     <a href="ThemNXB.php" class="btn btn-primary">Thêm nhà xuất bản</a>
                 </div>
                 <div id="Them"></div>
