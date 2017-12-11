@@ -187,8 +187,15 @@ include('main/trangnhaxuatban.php');
 
             <div class="col-md-9 ">
                 <div class="panel panel-default">
+
                     <div class="panel-heading" style="background-color:#337AB7; color:white;">
-                        <h4><b><?=$chitietnxb['TenNXB']?></b></h4>
+                        <h4><b><?=$chitietnxb['TenNXB']?>(<?php 
+                            $tongsach=$c_index->gettongsachnxb($chitietnxb['MaNXB']); 
+
+                            echo $tongsach['count(*)'];
+
+
+                            ?> sách) </b></h4>
                     </div>
                     <div id="divBody" style="background:White;">
                 

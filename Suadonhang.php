@@ -325,15 +325,16 @@ if($_SESSION['username']== null || $_SESSION['loai']=="kh")
                         $m_admin = new M_admin();
                         $madonhang = $_GET['Madonhang'];
                        
-                        $donhang = $m_admin-> getDonhangbyID($madonhang);
-                       
+                        $donhang = $m_admin->getDonhangbyID($madonhang);
                         
                         ?>
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-12">
                                     <form role="form" action="XuLySuadonhang.php?madonhang=<?=$donhang['Madonhang']?>" method="post" >
-                                      
+                                      <?php if(isset($_SESSION['errormess']))
+                                      echo '<div class="alert alert-danger"><?=$_SESSION["errormess"]?></div>'
+                                      ?>
                                         <div class="form-group">
                                            <label>Mã khách hàng</label>
                                             <input name="makh" class="form-control" value="<?=$donhang['MaKH']?>" >
@@ -341,7 +342,20 @@ if($_SESSION['username']== null || $_SESSION['loai']=="kh")
                                      
                                      <div class="form-group">
                                            <label> Ngày giao</label>
-                                            <input name="ngaygiao" type="date" class="form-control" value="<?=$donhang['NgayGiao']?>" >
+                                           <?php
+                                           
+                                           
+                                            $donhang = $m_admin->getDonhangbyID($madonhang);
+                                            $NG= $donhang['NgayGiao'];
+                                           
+                                            
+                                            $a=date("d/m/Y",strtotime($NG));
+                                                                                         
+                                            ?>
+                                            <input name="ngaygiao" type="date" class="form-control" value="<?= $a   ?> " >
+                                            
+                                            
+                                            
                                         </div>
                                       
                                          <div class="form-group">

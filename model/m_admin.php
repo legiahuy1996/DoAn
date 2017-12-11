@@ -31,6 +31,11 @@ class M_admin extends database{
 		$sql = "DELETE from sach where masach = '$masach'";
 		return $this->execute($sql);
 	}
+	function kiemtrasachtrung($masach)
+	{
+		$sql="SELECT COUNT(*) from sach where MaSach = $masach";
+		return $this->get_row($sql);
+	}
 	function getSachByID($masach)
 	{
 		$sql = "SELECT * from sach where MaSach = $masach";

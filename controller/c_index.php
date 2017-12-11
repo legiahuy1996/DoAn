@@ -152,4 +152,10 @@ class C_index{
 		$result = $m_index->getlistdonhangbyID($id);
 		return $result;
 	}
+	function gettongsachnxb($ma)
+	{
+		$m_index = new M_index();
+		$result = $m_index->gettongsachnxb($ma);
+		return $result;
+	}
 }

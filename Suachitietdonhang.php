@@ -1,6 +1,7 @@
 <?php
 session_start();
 
+
 if($_SESSION['username']== null || $_SESSION['loai']=="kh")
 {
     header('location:dangnhapadmin.php');
@@ -324,7 +325,7 @@ if($_SESSION['username']== null || $_SESSION['loai']=="kh")
                         include('model/m_admin.php');
                         $m_admin = new M_admin();
                         $mact = $_GET['mact'];
-                        $chitiet = $m_admin->getchitietdonhangbyID($mact)
+                        $chitiet = $m_admin->getchitietdonhangbyID($mact);
                   
                         
                         ?>
@@ -343,7 +344,7 @@ if($_SESSION['username']== null || $_SESSION['loai']=="kh")
                                         </div>
                                             <div class="form-group">
                                            <label>Số lượng</label>
-                                            <input name="soluong" type="number" class="form-control" value="<?=$chitiet['Soluong']?>" >
+                                            <input name="soluong" min="1" max="10" type="number" class="form-control" value="<?=$chitiet['Soluong']?>" >
                                         </div>
                                             <div class="form-group">
                                            <label>Đơn giá</label>

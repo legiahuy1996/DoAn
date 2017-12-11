@@ -195,7 +195,7 @@ if(isset($_SESSION['giohang']))
                         {
                             ?>
                            <li class="list-group-item">
-                            <a href="loaitin.html"><?php echo $tentacgia['TenTG']?></a>
+                            <a href="tacgia.php?matacgia=<?=$tentacgia['MaTacGia']?>"><?php echo $tentacgia['TenTG']?></a>
                         </li>
                         <?php
                         }
@@ -300,9 +300,17 @@ if(isset($_SESSION['giohang']))
         function soluong(id,giaban)
         {
             var soluong =parseInt($('#'+id+'').val());
-            
-            window.location="suagiohang.php?masach="+id+"&&soluong="+soluong+"&&giaban="+giaban;
-            alert('sửa thành công !');
+            if(soluong <0)
+            {
+                alert('số lượng không được âm!');
+                window.location = "giohang.php";
+            }
+            else
+            {
+                window.location="suagiohang.php?masach="+id+"&&soluong="+soluong+"&&giaban="+giaban;
+               alert('sửa thành công !');
+            }
+         
         }
         function dathang() {
                           var xhttp;

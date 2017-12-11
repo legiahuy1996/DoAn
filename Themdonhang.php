@@ -324,7 +324,14 @@ if($_SESSION['username']== null || $_SESSION['loai']=="kh")
                             <div class="row">
                                 <div class="col-lg-12">
                                     <form role="form" action="XuLyThemdonhang.php" method="post" >
-                                      
+                                      <?php if(isset($_SESSION['errormess']))
+                                        {
+                                            ?>
+                                              <div class="alert alert-danger"><?=$_SESSION["errormess"]?></div>
+                                            <?php
+                                        }
+
+                                       ?>
                                         
                                            <div class="form-group">
                                            
@@ -332,7 +339,7 @@ if($_SESSION['username']== null || $_SESSION['loai']=="kh")
                                         </div>
                                             <div class="form-group">
                                            <label>Ngày giao</label>
-                                            <input type="date"  name="ngaygiao" class="form-control" placeholder="Ngày giao">
+                                            <input type="date"  name="ngaygiao" class="form-control" placeholder="Ngày giao" required>
                                         </div>
                                         <div class="form-group">
                                            <label>Địa chỉ</label>
